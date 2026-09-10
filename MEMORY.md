@@ -178,9 +178,32 @@ Rewrote `CLAUDE.md` (restored after the scaffold overwrote it — see Issues) an
 - Button rows could overflow at 768px — now `sm:flex-wrap`.
 
 ### Git
-See the commits created in this session (`git log`). Repository-local identity is
-`nesora-ops <ops@nesora.co.in>`; remote is `github.com/nesora-ops/bew` (public, by the user's
-explicit decision).
+
+Repository initialised on `main`. Identity set **repository-local only** — the global config was
+left untouched (it is a different developer account):
+
+```
+git config user.name  "nesora-ops"
+git config user.email "ops@nesora.co.in"
+```
+
+Remote: `https://github.com/nesora-ops/bew.git` — **public**, by the user's explicit decision.
+Pushed as the `nesora-ops` GitHub account. All seven commits are authored
+`nesora-ops <ops@nesora.co.in>`.
+
+| Commit | Message |
+|---|---|
+| `250ebc0` | chore: scaffold Next.js 16 app with Tailwind v4 and TypeScript |
+| `376ee69` | docs: add project instructions, memory and source content document |
+| `972f33a` | feat: add typed BEW content layer |
+| `f2e901e` | feat: add design tokens, layout primitives and placeholder brand |
+| `3c766f2` | feat: build homepage and certification system |
+| `577a75e` | feat: add remaining site pages |
+| `d517002` | feat: add SEO metadata, sitemap, robots and 404 |
+
+Note: git reports `LF will be replaced by CRLF` warnings on this Windows checkout. Harmless, but
+a `.gitattributes` pinning `* text=auto eol=lf` would silence them and keep line endings stable
+if anyone works on this from macOS or Linux.
 
 ### Next Recommended Step
 Human visual review of all pages, then supply brand assets and the outstanding content above.
