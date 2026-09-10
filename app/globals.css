@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens.
+ *
+ * Ported from the reference site (glaido.com) in LIGHT MODE — values read from its
+ * live stylesheet `[data-theme=light]` block, not approximated by eye.
+ *
+ * Light mode only: the reference was specified as light, so there is a single palette
+ * here rather than a dual-theme token set.
+ *
+ * `--color-accent` is the reference's green. No BEW brand palette exists yet; when one
+ * arrives this single line is the swap point.
+ */
+@theme {
+  /* Surfaces */
+  --color-canvas: #f2f2f2;
+  --color-surface: #ffffff;
+  --color-surface-muted: #e5e5e5;
+
+  /* Ink */
+  --color-ink: #000000;
+  --color-ink-subdued: rgba(0, 0, 0, 0.7);
+  --color-ink-disabled: rgba(0, 0, 0, 0.3);
+
+  /* Lines & washes */
+  --color-line: rgba(0, 0, 0, 0.1);
+  --color-wash: rgba(0, 0, 0, 0.03);
+  --color-wash-strong: rgba(0, 0, 0, 0.05);
+
+  /* Accent */
+  --color-accent: #4f730c;
+  --color-accent-hover: #6fa014;
+  --color-accent-soft: #f4ffe1;
+  --color-accent-soft-strong: #e6ffb8;
+
+  /* Radii */
+  --radius-btn: 10px;
+  --radius-card: 12px;
+
+  /* Typography */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Elevation */
+  --shadow-elevation: 0 4px 24px rgba(0, 0, 0, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--color-accent-soft-strong);
+  color: var(--color-ink);
+}
+
+/* Unresolved business facts carried over from the source content document.
+   Kept visible on purpose — see CLAUDE.md "Content rules". */
+[data-placeholder] {
+  background-color: var(--color-accent-soft);
+  border-bottom: 1px dashed var(--color-accent);
+  color: var(--color-accent);
+  border-radius: 3px;
+  padding: 0 0.25em;
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  /* Must wrap: several source placeholders are long sentences, and nowrap forced
+     horizontal overflow on narrow screens. */
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
