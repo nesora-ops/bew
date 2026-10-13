@@ -538,3 +538,23 @@ Not adopted:
 
 - **Swapping the custom shader for `cobe` plus an SVG overlay.** On a light page, cobe draws dark dots on a solid shaded sphere whose alpha never drops below 0.5. That can't produce emerald linework on a frosted body, which is the hologram look. The approved custom shader stays.
 - **Trying Geist 800 first.** You chose Outfit. The Phase 2 specimen includes Geist 800 for comparison anyway.
+
+---
+
+## 13. Changes made during implementation (2026-10-13)
+
+The user redirected a few decisions mid-sprint. What shipped:
+
+| Planned | Shipped | Why |
+|---|---|---|
+| Leaf shadows in hero bands only (decision 4) | One fixed, site-wide layer in the root layout, with about half the blur, tinted in the leaf green | User request. Worst-case contrast rechecked: muted text 5.82:1, accent 5.72:1 where both layers overlap. |
+| Custom WebGL hologram globe over "Earth" | A dotted SVG globe dome below the "Better Earth" wordmark, with three decorative pulse markers | User request, with a pasted shadcn-style component. Adapted: server component, the site's tokens instead of `--primary`/`--background`, no shadcn/Radix/cva, and no demo tooltips (their prices and stock counts were invented data). The dot path is generated from Natural Earth by `scripts/build-globe-data.mjs`. |
+| Black wordmark and statement | Dark green (`accent`, `accent-strong`) for the wordmark, headline, card text and statement | User request ("the same darkened green instead of black and grey"). |
+| Home impact metrics block | Removed | User request. The figures remain on the source doc's launch checklist. |
+
+Performance notes:
+
+- The WebGL globe's synchronous shader compile (ANGLE on Windows) cost up to 1.6 s of TBT in Lighthouse. A `KHR_parallel_shader_compile` rewrite was in progress when the globe was replaced; the module is gone.
+- Animated SVG children (the first version of the pulse markers) restyled and repainted the whole globe every frame. The markers are now HTML over the SVG, so the pulse runs on the compositor.
+- The leaf layers were flattened from about 100 paths to four, cutting the home HTML from 213 KB to 193 KB.
+- Lighthouse mobile on `/`: accessibility, best practices and SEO all 100; CLS 0; TBT about 280 ms (as baseline); performance 84–88 against a 91–92 baseline, because LCP is about 3.0 s against 2.6 s. The extra early bytes are mostly the new display font. The open options (system monospace instead of Geist Mono, or Outfit for body text too) change typography, so they are the user's call.

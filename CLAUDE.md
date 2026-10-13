@@ -90,6 +90,9 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
   (timelines, validity, assessor training duration, independence vs referral fees, accreditation
   claims, investor/regulatory claims, the Organisation of Choice™ relationship, pricing, contact
   details, case-study figures) must be preserved as flagged, not silently resolved.
+- No em dashes in user-visible copy or in the source document. Use a colon, comma, full stop,
+  parentheses or a restructured sentence. En dashes appear only in numeric ranges (8–12 weeks).
+  Page titles use a pipe separator (`About | Better Earth Workplaces`).
 
 ## Architecture rules
 
@@ -101,10 +104,30 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 ## Design rules
 
-- Reference: glaido.com in **light mode**. Tokens live in the `@theme` block in `app/globals.css`.
-- Light mode only. No gradients, no heavy shadows, minimal motion.
-- The accent green `#4f730c` is carried from the reference; no BEW brand palette exists yet.
-- The logo is a **placeholder**. Do not present it as final brand.
+These supersede PROMPT.md §3 and §20 for visual direction (2026-10-13). PROMPT.md stays
+unedited as the historical brief.
+
+- Reference: the "Qelora" screen recording for feel (off-white canvas, leaf shadows, giant
+  display type, pill navigation, slow editorial motion). Take the feel, never the files: no
+  assets, fonts, code or copy from any reference. Tokens live in the `@theme` block in
+  `app/globals.css`.
+- Light mode only. Gradients only as soft light (the globe's fade, the leaf shadows), never
+  behind body text or on buttons and cards. Soft shadows only on floating elements (nav pills,
+  hero card); grid cards stay flat. Motion is slow and purposeful: one easing curve
+  (`--ease-calm`), transform and opacity only, no scroll-jacking, and every animation has a
+  reduced-motion fallback.
+- The greens are a proposal, not BEW brand: deep green `#1D5A3A` (`accent`), `accent-strong`
+  for text that needs more weight. No BEW brand palette exists yet; the `@theme` tokens are
+  the single swap point. The home hero and statement use the dark green, not black and grey.
+- The dappled leaf shadows are the site-wide ambient texture: one fixed layer in
+  `app/layout.tsx`, behind content, at most 10% (near) and 6% (far) of the leaf green.
+- The hero globe is static SVG (`components/ui/globe.tsx`), generated from Natural Earth by
+  `scripts/build-globe-data.mjs`. Keep it free of client JavaScript, and animate only with
+  compositor-friendly CSS on HTML elements (an animated SVG child repaints the whole globe).
+- Fonts: Outfit for display (wordmark, h1/h2, statement), Geist for body and UI, Geist Mono
+  for labels and placeholders, all through `next/font/google`.
+- The logo is a **placeholder**. Do not present it as final brand. The hero "Better Earth"
+  wordmark is typeset copy, not the logo; revisit it when brand assets arrive.
 
 ## Git
 
