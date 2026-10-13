@@ -129,13 +129,14 @@ export default function HomePage() {
 
   return (
     <>
-      {/* 1. Hero. Source §1 Hero: headline and secondary CTA. The subheading becomes
-          the statement's caption. The "Global Authority" overline is the user's own
+      {/* 1. Hero. Source §1 Hero: headline, subheading and secondary CTA. The
+          subheading is also the statement's caption. The "Global Authority" overline is the user's own
           copy (2026-10-13), not from the source doc. */}
       <HomeHero
         overline="Global Authority"
         wordmark="Better Earth"
         title="The Global Sustainability Certification Authority"
+        description="Third-party verified credentials that prove your environmental and social impact to investors, customers, and stakeholders."
         link={{ label: "Explore Our Certifications", href: "#certifications" }}
       />
 

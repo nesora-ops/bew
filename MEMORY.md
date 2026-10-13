@@ -20,9 +20,8 @@ Status:
 - **Database:** none in this repo.
 - **Authentication:** none.
 - **Styling:** Tailwind CSS v4 with CSS-variable design tokens in `app/globals.css` (`@theme`).
-  Light mode only. Motion is CSS (keyframes plus scroll-driven animations behind
-  `@supports`), except the hero globe's scroll rise and scale, which use `motion` 13.4.6
-  (`motion/react`, the user's request). It loads only in the lazy globe chunk.
+  Light mode only. Motion is CSS only (keyframes plus scroll-driven animations behind
+  `@supports`); there is no motion library (`motion` was added and removed on 2026-10-13).
 - **Fonts:** Outfit (display), Geist (body and UI) and Geist Mono (labels, placeholders), all via
   `next/font/google`. Geist Mono is not preloaded.
 - **Icons:** `lucide-react` (only runtime dependency added beyond the Next scaffold).
@@ -377,3 +376,17 @@ no console errors.
 - New dependency: `motion` 13.4.6 (exact; 14.x was days old).
 - Verified: build (30 routes), tsc, lint; at 1440 the globe rotates, pauses off screen and is
   fully revealed by scroll; at 375 no overflow.
+
+## 2026-10-13 — Session 3 (cont. 3): hero matched to the mockup, globe as an image
+
+- The user asked for the mockup exactly, with no globe animation, and to use the image for
+  the globe. `public/hero-globe.webp` is cropped from their mockup (1024x572, so the globe
+  is about 650x290 source pixels): circle centre (512, 608), radius 324 in mockup pixels,
+  feathered circle mask, background (242, 243, 238) normalised to white, Lanczos 2x. Shown
+  with `mix-blend-multiply` and a bottom mask fade; `next/image` with `priority`. It is a
+  little soft on large retina screens because of the source size.
+- Removed: `AnimatedGlobe.tsx`, `HeroGlobe.tsx`, `globe-land-grid.ts`, the `motion`
+  dependency, and the grid output of `scripts/build-globe-data.mjs` (404 output unchanged).
+- Hero sizes tuned against the mockup scaled to 1440x804: wordmark `8.1vw`/`7.25rem`, h1
+  `clamp(1.375rem, 2.12vw, 1.93rem)`, the subheading paragraph restored (15px, two lines),
+  overline in the sans face. The same subheading is still the statement's caption just below.
