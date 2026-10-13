@@ -78,7 +78,7 @@ export function GlobePoster({ variant = "hero" }: { variant?: GlobeVariant }) {
         fill="none"
         stroke={GLOBE_COLORS.dot}
         strokeOpacity="0.9"
-        strokeWidth={isHero ? 9 : 14}
+        strokeWidth={isHero ? 9 : 7}
         strokeLinecap="round"
       />
       <circle cx={f.cx} cy={f.cy} r={f.r} fill={`url(#${id}-limb)`} />

@@ -33,9 +33,15 @@ const FRAMES = {
   hero: { width: 1000, height: 1000, cx: 500, cy: 500, r: 400 },
   horizon: { width: 1600, height: 480, cx: 800, cy: 1613, r: 1440 },
 };
-/** Posters use a sparser grid than the live globe (about 4 degree rows) to keep HTML small. */
-const POSTER_ROWS = 44;
-const POSTER_COLS = 88;
+/**
+ * Dot grids for the posters. The hero poster sits on the home page, so it uses a
+ * sparser grid than the live globe (about 4 degree rows) to keep the HTML small. The
+ * horizon only shows a thin arc on the 404, so it can use the live grid.
+ */
+const POSTER_GRIDS = {
+  hero: { rows: 44, cols: 88 },
+  horizon: { rows: 75, cols: 150 },
+};
 
 // 1. Decode the TopoJSON arcs (quantised, delta-encoded) into lon/lat rings.
 const [sx, sy] = topo.transform.scale;
@@ -134,10 +140,11 @@ function dots(variant) {
   const view = VIEWS[variant];
   const frame = FRAMES[variant];
   const visible = inFrame(frame);
+  const { rows, cols } = POSTER_GRIDS[variant];
   let d = "";
-  for (let i = 0; i < POSTER_ROWS; i++) {
-    const lat = -90 + ((i + 0.5) * 180) / POSTER_ROWS;
-    const n = Math.max(1, Math.round(POSTER_COLS * Math.cos(lat * DEG)));
+  for (let i = 0; i < rows; i++) {
+    const lat = -90 + ((i + 0.5) * 180) / rows;
+    const n = Math.max(1, Math.round(cols * Math.cos(lat * DEG)));
     for (let j = 0; j < n; j++) {
       const lon = -180 + ((j + 0.5) * 360) / n;
       if (!isLand(lat, lon)) continue;
