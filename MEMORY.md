@@ -25,8 +25,10 @@ Status:
 - **Fonts:** Outfit (display), Geist (body and UI) and Geist Mono (labels, placeholders), all via
   `next/font/google`. Geist Mono is not preloaded.
 - **Icons:** `lucide-react` (only runtime dependency added beyond the Next scaffold).
-- **Deployment:** Vercel, linked to `nesora-ops/bew`. Pushes to `main` deploy to production
-  (https://bew-rho.vercel.app). No custom domain yet.
+- **Deployment:** Vercel project `nesora-ops-projects/bew`, linked to `nesora-ops/bew`. Pushes to
+  `main` deploy to production (https://bew-nesora-ops-projects.vercel.app). Vercel Deployment
+  Protection is on, so every URL redirects to a Vercel login. The repo's homepage field
+  (`bew-rho.vercel.app`) is stale: it returns DEPLOYMENT_NOT_FOUND. No custom domain yet.
 
 ## Current Routes
 
@@ -163,7 +165,7 @@ independence callout on `/assessors-partners`) rather than silently resolved.
 - [ ] Find Your Fit quiz
 - [ ] Legal copy for the four `/legal/*` stubs
 - [ ] Decide production domain (currently `https://betterearthworkplace.com` in `content/site.ts`)
-- [ ] Custom production domain on Vercel (currently `bew-rho.vercel.app`)
+- [ ] Custom production domain on Vercel, and turn off Deployment Protection for it to be public
 - [ ] User testing of the redesign on localhost, then push `redesign/hologram-globe` as nesora-ops
 - [ ] Decide on the font trade-off for Lighthouse performance (see Known Issues)
 - [ ] Decide whether the `/certifications` stats row should go too (the home page's impact
@@ -315,6 +317,9 @@ Local preview configs `bew-dev` (3300) and `bew-prod` (3301) were added to the O
 Pushed 2026-10-13 as nesora-ops: `main` fast-forwarded to the redesign branch and pushed
 (`56ae7c4..main`), the branch was pushed too. Vercel production deploys from `main`.
 
+Vercel built and deployed `caa606d` successfully (GitHub status: "Deployment has completed").
+
 ### Next Recommended Step
-Check the production deploy at https://bew-rho.vercel.app. Decide the font trade-off for
+Check the production deploy at https://bew-nesora-ops-projects.vercel.app (needs a Vercel login
+while Deployment Protection is on). Decide the font trade-off for
 Lighthouse mobile performance (84–88 vs the 91–92 baseline).
