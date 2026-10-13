@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { getCaseStudies, getCertifications, getInsights } from "@/content";
 import { headlineTimeline, journeyStages } from "@/content/journey";
+import { DifferentiatorGrid } from "@/components/home/DifferentiatorGrid";
 import { HomeHero } from "@/components/home/HomeHero";
 import { ProblemGrid } from "@/components/home/ProblemGrid";
 import { Statement } from "@/components/home/Statement";
@@ -19,7 +20,7 @@ import {
   Testimonial,
 } from "@/components/content-blocks";
 import { Button } from "@/components/ui/Button";
-import { Card, FeatureCard, IconTile } from "@/components/ui/Card";
+import { Card, IconTile } from "@/components/ui/Card";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { PlaceholderText } from "@/components/ui/PlaceholderText";
 
@@ -160,24 +161,12 @@ export default function HomePage() {
       />
 
       {/* 3. Why Better Earth Workplaces */}
-      <Section>
-        <SectionHeading
-          eyebrow="Why Better Earth Workplaces"
-          title="Credibility is the product."
-          description="Five reasons organizations choose BEW certification over self-declaration."
-        />
-        <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {differentiators.map((item, index) => (
-            <li key={item.title}>
-              <FeatureCard
-                eyebrow={String(index + 1).padStart(2, "0")}
-                title={item.title}
-                description={item.description}
-              />
-            </li>
-          ))}
-        </ol>
-      </Section>
+      <DifferentiatorGrid
+        eyebrow="Why Better Earth Workplaces"
+        title="Credibility is the product."
+        description="Five reasons organizations choose BEW certification over self-declaration."
+        items={differentiators}
+      />
 
       {/* 4. Seven certification pathways */}
       <Section id="certifications">

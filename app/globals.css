@@ -24,7 +24,8 @@
   --color-line: rgb(18 21 18 / 0.12);
   --color-wash: rgb(18 21 18 / 0.04);
 
-  /* Greens. `holo` and `holo-deep` are decorative only: never use them for text. */
+  /* Greens. `holo` and `holo-deep` are decorative, never text on light surfaces
+     (`holo` is used for small labels on `accent-strong`, where it reads at 7:1+). */
   --color-accent: #1d5a3a;
   --color-accent-strong: #0a3d1e;
   --color-accent-soft: #e3f0e7;

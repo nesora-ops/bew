@@ -390,3 +390,16 @@ no console errors.
 - Hero sizes tuned against the mockup scaled to 1440x804: wordmark `8.1vw`/`7.25rem`, h1
   `clamp(1.375rem, 2.12vw, 1.93rem)`, the subheading paragraph restored (15px, two lines),
   overline in the sans face. The same subheading is still the statement's caption just below.
+
+## 2026-10-13 — Session 3 (cont. 4): "Why Better Earth Workplaces" bento grid
+
+- Rebuilt from the user's prompt as `components/home/DifferentiatorGrid.tsx`: a flush
+  1px wireframe grid (container carries top and left rules, each cell right and bottom),
+  three cells on top, "Recognized Worldwide" spanning two columns with a 5xl title beside its
+  paragraph, "Investor-Grade Credibility" as the `accent-strong` anchor with a faint
+  `holo-deep` radial light and `holo` mono number (7.5:1 on the green). Hairlines use the
+  `line` token rather than neutral-300; hover is `bg-surface`. Stacks below `lg`.
+- Headline "Credibility is the product." in `accent-strong`, `clamp(2.5rem, 5.6vw, 4.5rem)`.
+  Copy unchanged from the source. The home page no longer imports `FeatureCard` (still used
+  on other pages).
+- Checked at 1440 (titles aligned per row, no doubled lines) and 375 (stacked, no overflow).
