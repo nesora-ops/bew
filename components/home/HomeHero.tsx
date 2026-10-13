@@ -1,6 +1,4 @@
 import { ArrowDown } from "lucide-react";
-import { Globe, GlobePin, GlobeSvg } from "@/components/ui/globe";
-import { GLOBE_PINS } from "@/components/ui/globe-utils/svg-globe-path";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Section";
 import { PlaceholderText } from "@/components/ui/PlaceholderText";
@@ -8,11 +6,11 @@ import { PlaceholderText } from "@/components/ui/PlaceholderText";
 /**
  * Home page hero.
  *
- * A giant typeset wordmark in the dark green, with the dotted globe rising beneath
- * it. The wordmark is decorative (`aria-hidden`): the visible h1 carries the
- * headline. It is typeset copy, not the logo, and it is the page's LCP element.
+ * A giant typeset wordmark in ink, with an empty slot beneath it where the hero
+ * globe will go. The wordmark is decorative (`aria-hidden`): the visible h1 carries
+ * the headline. It is typeset copy, not the logo, and it is the page's LCP element.
  *
- * On scroll the globe lags slightly behind the page (`scroll-globe`). All copy
+ * On scroll the globe slot lags slightly behind the page (`scroll-globe`). All copy
  * comes from the page, which takes it from the source doc.
  */
 export function HomeHero({
@@ -34,22 +32,21 @@ export function HomeHero({
         <div className="relative flex flex-col pt-6 pb-14 sm:pt-8 lg:pb-16">
           <p
             aria-hidden="true"
-            className="relative z-10 font-display text-[24vw] leading-[0.86] font-extrabold tracking-[-0.055em] whitespace-nowrap text-accent select-none sm:text-[14.5vw] xl:text-[13.25rem]"
+            className="relative z-10 font-display text-[24vw] leading-[0.86] font-extrabold tracking-[-0.055em] whitespace-nowrap text-ink select-none sm:text-[14.5vw] xl:text-[13.25rem]"
           >
             <span className="block sm:inline">{first}</span>{" "}
             <span className="block sm:inline">{rest.join(" ")}</span>
           </p>
 
-          <div className="scroll-globe pointer-events-none relative z-0 -mx-[30vw] -mt-[4vw] sm:-mx-[6vw] lg:-mx-8 lg:-mt-[3vw]">
-            <Globe>
-              <GlobeSvg />
-              {GLOBE_PINS.map((pin) => (
-                <GlobePin key={`${pin.x}-${pin.y}`} x={pin.x} y={pin.y} />
-              ))}
-            </Globe>
-          </div>
+          {/* Empty slot for the hero globe, which the user is supplying. It keeps the
+              old globe's box (aspect 1259/477) so the layout holds when it lands. */}
+          <div
+            aria-hidden="true"
+            data-globe-slot
+            className="scroll-globe pointer-events-none relative z-0 -mx-[30vw] -mt-[4vw] aspect-[1259/477] sm:-mx-[6vw] lg:-mx-8 lg:-mt-[3vw]"
+          />
 
-          {/* Overlaps the globe's lower half, where its dots fade into the canvas. */}
+          {/* Overlaps the lower part of the globe slot. */}
           <div className="relative z-20 -mt-[14vw] grid gap-10 sm:-mt-[12vw] lg:-mt-[17vw] lg:grid-cols-[minmax(0,1fr)_21rem] lg:items-end xl:-mt-[15rem]">
             <div className="max-w-md">
               <h1 className="font-display text-[clamp(1.75rem,2.6vw,2.5rem)] leading-[1.1] font-semibold tracking-[-0.02em] text-balance text-accent-strong">

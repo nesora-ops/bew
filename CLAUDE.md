@@ -118,11 +118,13 @@ unedited as the historical brief.
   reduced-motion fallback.
 - The greens are a proposal, not BEW brand: deep green `#1D5A3A` (`accent`), `accent-strong`
   for text that needs more weight. No BEW brand palette exists yet; the `@theme` tokens are
-  the single swap point. The home hero and statement use the dark green, not black and grey.
+  the single swap point. The home hero wordmark is ink (`#121512`); the hero h1, card and the
+  statement use the dark green.
 - The dappled leaf shadows are the site-wide ambient texture: one fixed layer in
   `app/layout.tsx`, behind content, at most 10% (near) and 6% (far) of the leaf green.
-- The hero globe is static SVG (`components/ui/globe.tsx`), generated from Natural Earth by
-  `scripts/build-globe-data.mjs`. Keep it free of client JavaScript, and animate only with
+- The home hero has an empty globe slot (`data-globe-slot` in `components/home/HomeHero.tsx`)
+  for a globe the user is supplying. The 404 horizon still uses the static SVG globe
+  (`components/ui/globe.tsx`), generated from Natural Earth by `scripts/build-globe-data.mjs`. Keep it free of client JavaScript, and animate only with
   compositor-friendly CSS on HTML elements (an animated SVG child repaints the whole globe).
 - Fonts: Outfit for display (wordmark, h1/h2, statement), Geist for body and UI, Geist Mono
   for labels and placeholders, all through `next/font/google`.
