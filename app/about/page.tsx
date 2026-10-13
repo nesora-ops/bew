@@ -126,7 +126,7 @@ export default function AboutPage() {
             <SectionHeading eyebrow="Vision" title="Our vision" />
             <p className="mt-5 text-[17px] leading-relaxed text-ink-subdued">
               A world where sustainability claims are independently verified, impact is
-              measurable, and organizations are rewarded—not penalized—for genuine progress
+              measurable, and organizations are rewarded, not penalized, for genuine progress
               toward a low-carbon, equitable future.
             </p>
           </div>
@@ -199,7 +199,7 @@ export default function AboutPage() {
         <div className="mt-12 grid gap-4 lg:grid-cols-2">
           <Card>
             <h3 className="text-lg font-medium tracking-[-0.01em] text-ink">
-              Founder &amp; CEO — Ketaki
+              Ketaki, Founder &amp; CEO
             </h3>
             <p className="mt-3 text-[15px] leading-relaxed text-ink-subdued">
               Ketaki founded BEW to address the lack of credible, independent,
@@ -257,7 +257,7 @@ export default function AboutPage() {
           description="Assessors include sustainability consultants, environmental engineers, auditors, and impact measurement specialists. They work independently within the BEW framework."
         />
         <p className="mt-8 text-[15px] text-ink-subdued">
-          BEW also works with channel partners — see{" "}
+          BEW also works with{" "}
           <a href="/partners" className="text-accent hover:underline">
             channel partners
           </a>

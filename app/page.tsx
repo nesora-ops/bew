@@ -26,7 +26,7 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { PlaceholderText } from "@/components/ui/PlaceholderText";
 
 export const metadata: Metadata = {
-  title: "Better Earth Workplaces — The Global Sustainability Certification Authority",
+  title: "Better Earth Workplaces | The Global Sustainability Certification Authority",
   description:
     "Third-party verified credentials that prove your environmental and social impact to investors, customers, and stakeholders.",
   alternates: { canonical: "/" },
@@ -36,19 +36,19 @@ export const metadata: Metadata = {
 const problemPoints = [
   {
     icon: ScrollText,
-    title: "The Challenge — Sustainability Claims Without Proof",
+    title: "The Challenge: Sustainability Claims Without Proof",
     description:
       "Organizations often rely on self-reported data without independent verification, creating stakeholder doubt.",
   },
   {
     icon: Globe2,
-    title: "The Gap — No Single Standard",
+    title: "The Gap: No Single Standard",
     description:
       "ISO standards, ESG reporting, CSR guidelines, and other frameworks can tell different stories. Organizations struggle to demonstrate comparability and often face expensive consultants, unclear pathways, and wasted resources.",
   },
   {
     icon: ShieldCheck,
-    title: "The Solution — Independent, Credible Verification",
+    title: "The Solution: Independent, Credible Verification",
     description:
       "Better Earth Workplaces provides rigorous third-party certification aligned with global standards. Impact is measured, verified, documented, and designed to be recognized by investors, regulators, customers, and other stakeholders.",
   },
@@ -221,7 +221,7 @@ export default function HomePage() {
       <Section>
         <SectionHeading
           eyebrow="How certification works"
-          title="Your certification journey —"
+          title="Your certification journey,"
           accent="transparent & achievable."
           description={headlineTimeline}
         />

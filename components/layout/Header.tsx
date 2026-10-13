@@ -19,7 +19,7 @@ export function Header() {
           <Link
             href="/"
             className="min-w-0 shrink rounded-btn focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
-            aria-label="Better Earth Workplaces — home"
+            aria-label="Better Earth Workplaces home"
           >
             <Logo />
           </Link>

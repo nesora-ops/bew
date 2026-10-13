@@ -229,7 +229,7 @@ export default function OrganizationsPage() {
           eyebrow="Cost & investment"
           title="Pricing varies by certification"
           accent="and organization size."
-          description="Pricing is intended to be all-in for the certification process — no hidden fees."
+          description="Pricing is intended to be all-in for the certification process, with no hidden fees."
         />
 
         <div className="mt-10 -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">

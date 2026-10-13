@@ -139,7 +139,7 @@ const backgroundsSought = [
 /** Source: §4 "Training & Onboarding". */
 const trainingModules = [
   {
-    title: "Module 1 — BEW Fundamentals",
+    title: "Module 1: BEW Fundamentals",
     duration: "2 days",
     points: [
       "History, mission, governance",
@@ -149,7 +149,7 @@ const trainingModules = [
     ],
   },
   {
-    title: "Module 2 — Assessment Methodology",
+    title: "Module 2: Assessment Methodology",
     duration: "3 days",
     points: [
       "Structured interviews",
@@ -161,7 +161,7 @@ const trainingModules = [
     ],
   },
   {
-    title: "Module 3 — Specialization",
+    title: "Module 3: Specialization",
     duration: "3–5 days",
     points: [
       "Certification-specific criteria",
@@ -172,7 +172,7 @@ const trainingModules = [
     ],
   },
   {
-    title: "Module 4 — Practical Exercise",
+    title: "Module 4: Practical Exercise",
     duration: "2 weeks",
     points: ["Mock assessment", "Draft report", "Feedback", "Revision and resubmission"],
   },
@@ -317,7 +317,7 @@ export default function AssessorsPartnersPage() {
         <SectionHeading
           eyebrow="Training & onboarding"
           title="Four modules"
-          description="Source-stated training duration: 2–3 weeks online, with flexible scheduling. Module totals can appear longer because practical work overlaps other modules — the final schedule requires confirmation."
+          description="Source-stated training duration: 2–3 weeks online, with flexible scheduling. Module totals can appear longer because practical work overlaps other modules. The final schedule requires confirmation."
         />
         <ol className="mt-12 grid gap-4 sm:grid-cols-2">
           {trainingModules.map((module) => (

@@ -20,7 +20,7 @@ export function LegalStub({ title, summary }: { title: string; summary: string }
           <h2 className="text-base font-medium text-ink">Awaiting approved copy</h2>
           <p className="mt-2 text-[15px] leading-relaxed text-ink-subdued">
             <PlaceholderText>
-              {`[${title} copy to be supplied] — this page is a placeholder. Legal text must be drafted and approved before publication; none is present in the source content document.`}
+              {`[${title} copy to be supplied]. This page is a placeholder. Legal text must be drafted and approved before publication; none is present in the source content document.`}
             </PlaceholderText>
           </p>
         </Card>

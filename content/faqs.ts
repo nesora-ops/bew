@@ -103,7 +103,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "Where is a sample questionnaire available?",
         answer:
-          "[Certification name] sample questionnaire — [Link to PDF]",
+          "[Certification name] sample questionnaire: [Link to PDF]",
       },
       {
         question: "Is training available?",

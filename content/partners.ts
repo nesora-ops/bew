@@ -29,7 +29,7 @@ export const partnerCategories: PartnerCategory[] = [
   {
     name: "Green Finance Advisors",
     description:
-      "Connect verified impact to capital — sustainability-linked finance, green bonds, and investor reporting.",
+      "Connect verified impact to capital through sustainability-linked finance, green bonds, and investor reporting.",
   },
   {
     name: "Export Consultants",

@@ -8,7 +8,7 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 export const metadata: Metadata = {
   title: "FAQ",
   description:
-    "Eligibility, assessment, costs, using your certification, and support — answered.",
+    "Answers on eligibility, assessment, costs, using your certification, and support.",
   alternates: { canonical: "/faq" },
 };
 

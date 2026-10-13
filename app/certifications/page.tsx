@@ -25,7 +25,7 @@ const pillars = [
     icon: BadgeCheck,
     title: "Credible",
     description:
-      "Every BEW certification is backed by rigorous, independent assessment. Impact is verified by qualified professionals rather than self-reported — institutional-grade verification recognized by investors, customers, and regulators.",
+      "Every BEW certification is backed by rigorous, independent assessment. Impact is verified by qualified professionals rather than self-reported: institutional-grade verification recognized by investors, customers, and regulators.",
   },
   {
     icon: Layers,
@@ -181,7 +181,7 @@ export default function CertificationsPage() {
         </dl>
         <div className="mt-12 max-w-3xl">
           <Testimonial
-            quote="BEW certification gave us credible proof of our sustainability commitment—something our investors and customers demanded but we could not establish alone. The process was rigorous, transparent, and worth every hour of effort."
+            quote="BEW certification gave us credible proof of our sustainability commitment, something our investors and customers demanded but we could not establish alone. The process was rigorous, transparent, and worth every hour of effort."
             attribution="[Name, Title, Company]"
           />
         </div>

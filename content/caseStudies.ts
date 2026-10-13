@@ -14,7 +14,7 @@ import type { CaseStudy } from "./types";
 export const caseStudies: CaseStudy[] = [
   {
     slug: "sustainable-manufacturer",
-    title: "Environmental Impact — Sustainable Manufacturer",
+    title: "Environmental Impact: Sustainable Manufacturer",
     category: "Environmental Impact",
     certification: "Low Carbon Product",
     challenge:

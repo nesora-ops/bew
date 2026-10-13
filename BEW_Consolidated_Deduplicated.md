@@ -1,5 +1,5 @@
 # Better Earth Workplaces
-## Website Content — Part One (Deduplicated & Consolidated)
+## Website Content: Part One (Deduplicated & Consolidated)
 
 > **Purpose:** Cleaned version of the 55-page source document. Repeated messaging across the Homepage, About, and For Organizations sections has been consolidated while preserving the substantive content, certification pathways, process details, CTAs, placeholders, and implementation notes.
 
@@ -30,13 +30,13 @@
 
 Investors, customers, and employees are increasingly skeptical of unverified sustainability claims. Greenwashing is widespread, while sustainability frameworks remain fragmented.
 
-### The Challenge — Sustainability Claims Without Proof
+### The Challenge: Sustainability Claims Without Proof
 Organizations often rely on self-reported data without independent verification, creating stakeholder doubt.
 
-### The Gap — No Single Standard
+### The Gap: No Single Standard
 ISO standards, ESG reporting, CSR guidelines, and other frameworks can tell different stories. Organizations struggle to demonstrate comparability and often face expensive consultants, unclear pathways, and wasted resources.
 
-### The Solution — Independent, Credible Verification
+### The Solution: Independent, Credible Verification
 Better Earth Workplaces provides rigorous third-party certification aligned with global standards. Impact is measured, verified, documented, and designed to be recognized by investors, regulators, customers, and other stakeholders.
 
 **Outcome:** Investor confidence. Stakeholder trust. Competitive advantage.
@@ -108,7 +108,7 @@ BEW certifications are designed for stakeholders involved in capital allocation.
 - Description: Recognition for ethical workplace practices, employee wellbeing, and inclusive culture.
 - Note: Sister programme operated in partnership with Organisation of Choice™.
 
-**CTA:** Learn More — link each certification to its detail page.
+**CTA:** Learn More (link each certification to its detail page).
 
 **Find Your Fit:** Not sure which certification is right for you?  
 **CTA:** Take Our 2-Minute Quiz
@@ -117,17 +117,17 @@ BEW certifications are designed for stakeholders involved in capital allocation.
 
 ## How Certification Works
 
-**Headline:** Your Certification Journey — Transparent & Achievable
+**Headline:** Your Certification Journey, Transparent & Achievable
 
 **Core timeline:** Approximately 8–12 weeks from preparation through certification.
 
-### Stage 1 — Explore & Qualify
+### Stage 1: Explore & Qualify
 - Choose a certification pathway.
 - Review public criteria.
 - Complete a brief eligibility check.
 - Typical timing: Week 1.
 
-### Stage 2 — Prepare & Gather
+### Stage 2: Prepare & Gather
 Organizations receive:
 - Assessment framework
 - Sample questionnaire
@@ -144,7 +144,7 @@ Organizations select a qualified assessor from the BEW network.
 
 **Typical timing:** Weeks 2–4.
 
-### Stage 3 — Assessment
+### Stage 3: Assessment
 Depending on certification, the assessor may conduct:
 - Document review
 - Site verification or virtual walkthrough
@@ -154,7 +154,7 @@ Depending on certification, the assessor may conduct:
 
 Assessments typically take 4–6 weeks. Organizations receive regular check-ins and draft findings before the final report.
 
-### Stage 4 — Independent Review & Certification
+### Stage 4: Independent Review & Certification
 An independent review panel verifies:
 - Correct application of criteria
 - Sufficiency and credibility of evidence
@@ -168,7 +168,7 @@ Possible outcomes:
 - **Certified with Conditions:** Substantially meets the standard with minor gaps; typically 6–12 months for remediation and follow-up verification.
 - **Not Yet Certified:** Gaps must be addressed before reapplication, typically after 12 months.
 
-### Stage 5 — Ongoing Compliance & Reporting
+### Stage 5: Ongoing Compliance & Reporting
 Certification is described as valid for 3 years, with annual recertification/compliance checks. Annual checks are lighter-touch and typically take 2–4 weeks.
 
 Certified organizations receive:
@@ -190,14 +190,16 @@ Certified organizations receive:
 **Headline:** Trusted by Leading Organizations  
 **Subheading:** Across industries and continents, organizations are proving their impact.
 
-### Featured Case Study — Manufacturing
+### Featured Case Study: Manufacturing
 **Challenge:** A mid-size manufacturer wanted to reduce supply-chain emissions and prove progress to enterprise customers but lacked credible third-party verification.
 
 **Solution:** Low Carbon Product Certification with a supply-chain sustainability partner.
 
 **Result:** Achieved certification in 10 weeks, reduced Scope 3 emissions by 18%, and won three enterprise contracts citing the BEW badge.
 
-**Quote:** “The certification gave us credibility we could not have built alone. Our customers now trust our sustainability claims.” — [Name, Title]
+**Quote:** “The certification gave us credibility we could not have built alone. Our customers now trust our sustainability claims.”
+
+**Attribution:** [Name, Title]
 
 Additional case studies should cover real estate and hospitality.
 
@@ -265,7 +267,9 @@ Better Earth Workplaces is founded and led by [Ketaki's name], with strategic gu
 **CTA:** Meet Our Team
 
 **Testimonial placeholder:**  
-“Independent certification is the foundation of trust in ESG. Better Earth Workplaces brings institutional rigor to sustainability verification at scale.” — [Advisor name, Title, Organization]
+“Independent certification is the foundation of trust in ESG. Better Earth Workplaces brings institutional rigor to sustainability verification at scale.”
+
+**Attribution:** [Advisor name, Title, Organization]
 
 ---
 
@@ -338,7 +342,7 @@ Better Earth Workplaces certifies organizations that align their operations with
 
 ## Vision
 
-A world where sustainability claims are independently verified, impact is measurable, and organizations are rewarded—not penalized—for genuine progress toward a low-carbon, equitable future.
+A world where sustainability claims are independently verified, impact is measurable, and organizations are rewarded, not penalized, for genuine progress toward a low-carbon, equitable future.
 
 ## The Market Problem
 
@@ -380,7 +384,7 @@ Each follows the core model of transparent criteria, qualified assessor assessme
 
 ## Leadership & Governance
 
-### Founder & CEO — Ketaki
+### Ketaki, Founder & CEO
 Ketaki founded BEW to address the lack of credible, independent, investor-grade sustainability certification. Her stated approach centers on verification rather than marketing and on maintaining independence.
 
 **Credentials/affiliations:** [degree/certification], [board affiliations, if applicable]
@@ -513,12 +517,12 @@ The impact dashboard enables peer comparison, improvement planning, and year-ove
 
 ## Detailed Certification Journey
 
-### Stage 1 — Explore & Qualify
+### Stage 1: Explore & Qualify
 Review the criteria for the selected pathway and complete a 5-minute eligibility form.
 
 **Typical timing:** 1 week.
 
-### Stage 2 — Prepare & Gather
+### Stage 2: Prepare & Gather
 
 BEW provides:
 - Detailed assessment framework
@@ -547,7 +551,7 @@ Organizations have full choice in selecting their assessor.
 
 **CTA:** Browse Our Assessor Network
 
-### Stage 3 — Assessment
+### Stage 3: Assessment
 
 Possible components:
 - Document review
@@ -565,7 +569,7 @@ The organization receives regular check-ins, draft findings, and a detailed feed
 - Improvement recommendations
 - Certification/remediation pathway
 
-### Stage 4 — Review & Certification
+### Stage 4: Review & Certification
 
 The independent panel checks criteria application, evidence, scoring consistency, and conflicts of interest.
 
@@ -585,7 +589,7 @@ Certified organizations receive:
 - Partner-network access
 - Impact dashboard
 
-### Stage 5 — Annual Compliance
+### Stage 5: Annual Compliance
 
 Certification is stated to be valid for 3 years, with annual compliance reporting.
 
@@ -712,7 +716,7 @@ The badge can no longer be used while certification is inactive. The directory r
 ### Support
 
 **Where is a sample questionnaire available?**  
-[Certification name] sample questionnaire — [Link to PDF]
+[Certification name] sample questionnaire: [Link to PDF]
 
 **Is training available?**  
 Yes: webinars, written guides, and one-on-one orientation calls.
@@ -858,14 +862,14 @@ BEW states that it seeks assessors across geographies, industries, and backgroun
 
 ## Training & Onboarding
 
-### Module 1 — BEW Fundamentals
+### Module 1: BEW Fundamentals
 **2 days**
 - History, mission, governance
 - Independence and conflict-of-interest policies
 - Seven certification pathways
 - Technology platform / assessor portal
 
-### Module 2 — Assessment Methodology
+### Module 2: Assessment Methodology
 **3 days**
 - Structured interviews
 - Document review
@@ -874,7 +878,7 @@ BEW states that it seeks assessors across geographies, industries, and backgroun
 - Evidence gathering and scoring
 - Report writing
 
-### Module 3 — Specialization
+### Module 3: Specialization
 **3–5 days**
 - Certification-specific criteria
 - Sample assessments and case studies
@@ -882,7 +886,7 @@ BEW states that it seeks assessors across geographies, industries, and backgroun
 - Best practices
 - Q&A with BEW certification leadership
 
-### Module 4 — Practical Exercise
+### Module 4: Practical Exercise
 **2 weeks**
 - Mock assessment
 - Draft report
@@ -951,7 +955,7 @@ Certified channel partners may receive:
 
 # 6. Case Studies
 
-## Environmental Impact — Sustainable Manufacturer
+## Environmental Impact: Sustainable Manufacturer
 
 **Challenge:** A mid-size product manufacturer wanted to reduce supply-chain emissions and communicate progress to B2B customers but lacked credible third-party verification.
 
@@ -959,7 +963,9 @@ Certified channel partners may receive:
 
 **Result:** Certification in 10 weeks, 18% reduction in Scope 3 emissions, and three enterprise contracts citing the BEW badge.
 
-**Quote:** “The certification gave us credibility we could not have built alone.” — [CEO/Founder name]
+**Quote:** “The certification gave us credibility we could not have built alone.”
+
+**Attribution:** [CEO/Founder name]
 
 **Additional requirement:** Add 1–2 further case studies covering different certification types and organization sizes.
 
@@ -967,7 +973,7 @@ Certified channel partners may receive:
 
 
 
-# 9. Certifications Hub Page — Consolidated Content
+# 9. Certifications Hub Page: Consolidated Content
 
 > This section incorporates the separate **BEW Certifications Hub Page** source into the master document. Repeated descriptions already covered elsewhere have been consolidated; certification-specific assessment criteria, timelines, audience, comparison information, FAQs, and hub-page conversion elements are retained here.
 
@@ -979,7 +985,7 @@ Certified channel partners may receive:
 
 **Visual direction:** Full-width image/video showing diversity of certified organizations across industries and regions. Alternative: animated certification badges cascading or interconnecting.
 
-**Primary CTA:** Find Your Fit — link to interactive quiz/tool.
+**Primary CTA:** Find Your Fit (link to interactive quiz/tool).
 
 ## Why Choose a BEW Certification?
 
@@ -994,7 +1000,7 @@ BEW covers material sustainability challenges across industries, including water
 ### Comparable
 Standardized criteria allow benchmarking across peers, providing insight into performance relative to industry leaders on an anonymous and fair basis.
 
-## Seven Certifications — Detailed Hub Content
+## Seven Certifications: Detailed Hub Content
 
 ### 1. Water Neutral
 
@@ -1186,7 +1192,7 @@ Standardized criteria allow benchmarking across peers, providing insight into pe
 
 **Tool description:** The Find Your Fit tool takes 2–3 minutes and asks about industry, key stakeholders, and sustainability priorities. It then matches the organization with the certification or certifications that best align with its business and stakeholder expectations.
 
-**CTA:** Start Quiz — link to interactive tool.
+**CTA:** Start Quiz (link to interactive tool).
 
 **Alternative:** Browse the certifications and select the programme matching business priorities. Each certification page should include detailed criteria, timeline, investment, and FAQs.
 
@@ -1202,7 +1208,7 @@ Standardized criteria allow benchmarking across peers, providing insight into pe
 | Carbon Neutral Product | Premium Brands, Export Leaders | 14–16 weeks | $X | Investors, Conscious Consumers |
 | Workplace Certification | All Industries, All Sizes | 8–10 weeks | $X | Employees, Investors, Talent Market |
 
-**CTA:** View Full Pricing — link to Pricing Page.
+**CTA:** View Full Pricing (link to Pricing Page).
 
 ## Channel Partner Network
 
@@ -1230,7 +1236,9 @@ Standardized criteria allow benchmarking across peers, providing insight into pe
 
 **Featured statistics:** [X]+ Organizations Certified; [Y] Countries; [Z]K+ People Impacted; [W]M Tons CO2 Avoided Annually.
 
-**Featured quote:** “BEW certification gave us credible proof of our sustainability commitment—something our investors and customers demanded but we could not establish alone. The process was rigorous, transparent, and worth every hour of effort.” — [Name, Title, Company]
+**Featured quote:** “BEW certification gave us credible proof of our sustainability commitment, something our investors and customers demanded but we could not establish alone. The process was rigorous, transparent, and worth every hour of effort.”
+
+**Attribution:** [Name, Title, Company]
 
 **Logo carousel:** 8–10 certified organization logos.
 
@@ -1271,7 +1279,7 @@ Yes. The source says the badge links to a public certification record and that B
 
 **Contact:** certify@betterearthworkplace.com or [Phone Placeholder]
 
-## Certifications Hub — Publication Placeholders
+## Certifications Hub: Publication Placeholders
 
 ### Contact
 - [ ] Confirm email: certify@betterearthworkplace.com
@@ -1374,14 +1382,14 @@ The following redundancies were intentionally removed:
 
 The consolidated master document now incorporates two source documents:
 
-1. Homepage — 11 sections
+1. Homepage (11 sections)
 2. About Better Earth Workplaces
 3. For Organizations
-4. For Assessors & Partners — partial in Part One
+4. For Assessors & Partners (partial in Part One)
 5. Channel Partners
 6. Case Studies
 7. Master Placeholder & Launch Checklist
 8. Editorial / Consolidation Notes
-9. Certifications Hub Page — detailed certification criteria, comparison table, Find Your Fit tool, hub FAQ, social proof, partner network, final CTA, and publication placeholders
+9. Certifications Hub Page: detailed certification criteria, comparison table, Find Your Fit tool, hub FAQ, social proof, partner network, final CTA, and publication placeholders
 
 The Certifications Hub source was integrated without simply appending a duplicate copy: shared seven-certification descriptions, process language, independence claims, and CTA messaging were consolidated, while unique certification-specific assessment criteria and hub functionality were retained.

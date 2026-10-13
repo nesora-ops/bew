@@ -50,7 +50,7 @@ export default function PartnersPage() {
         <SectionHeading
           eyebrow="Why organizations use channel partners"
           title="Support across the journey"
-          description="Partners help organizations arrive at assessment prepared — without compromising the independence of the assessment itself."
+          description="Partners help organizations arrive at assessment prepared, without compromising the independence of the assessment itself."
         />
         <div className="mt-8 max-w-2xl">
           <BulletList items={partnerSupportActivities} />
@@ -81,7 +81,7 @@ export default function PartnersPage() {
         <Card className="mt-10">
           <p className="text-[15px] leading-relaxed text-ink-subdued">
             <PlaceholderText>
-              [Partner Directory] — no partner records have been supplied yet. The
+              [Partner Directory]: no partner records have been supplied yet. The
               directory will be populated from the certification platform once partner
               records exist.
             </PlaceholderText>

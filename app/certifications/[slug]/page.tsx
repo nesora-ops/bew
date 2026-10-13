@@ -40,7 +40,7 @@ export async function generateMetadata({
     description: certification.description,
     alternates: { canonical: `/certifications/${certification.slug}` },
     openGraph: {
-      title: `${certification.name} — Better Earth Workplaces`,
+      title: `${certification.name} | Better Earth Workplaces`,
       description: certification.description,
     },
   };
