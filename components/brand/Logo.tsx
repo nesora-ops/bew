@@ -38,7 +38,8 @@ export function Logo({ className = "" }: { className?: string }) {
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <LogoMark className="size-7 text-accent" />
       <span className="text-[15px] leading-tight font-semibold tracking-[-0.02em] text-ink">
-        Better Earth
+        {/* The space keeps the accessible name "Better Earth Workplaces", not "EarthWorkplaces". */}
+        Better Earth{" "}
         <span className="block text-[11px] font-medium tracking-[0.14em] text-ink-subdued uppercase">
           Workplaces
         </span>

@@ -34,14 +34,18 @@ export function Breadcrumbs({
   );
 }
 
-/** A single statistic. Values are placeholders throughout the source. */
+/**
+ * A single statistic, for use inside a `<dl>`. The label is the `<dt>` and comes
+ * first in the DOM, as a description list requires; flex-col-reverse shows the
+ * value above it. Values are placeholders throughout the source.
+ */
 export function Stat({ value, label }: { value: string; label: string }) {
   return (
-    <div className="border-t border-line pt-5">
-      <p className="text-[28px] leading-none font-medium tracking-[-0.02em] text-ink sm:text-[34px]">
+    <div className="flex flex-col-reverse border-t border-line pt-6">
+      <dt className="mt-3 text-sm text-ink-subdued">{label}</dt>
+      <dd className="font-display text-[clamp(2rem,3.4vw,2.75rem)] leading-none font-semibold tracking-[-0.025em] text-ink">
         <PlaceholderText>{value}</PlaceholderText>
-      </p>
-      <p className="mt-2.5 text-sm text-ink-subdued">{label}</p>
+      </dd>
     </div>
   );
 }
@@ -54,12 +58,12 @@ export function Testimonial({
   attribution: string;
 }) {
   return (
-    <figure className="rounded-card border border-line bg-surface p-7 sm:p-9">
+    <figure className="rounded-card bg-surface p-8 sm:p-10">
       <Quote className="size-6 text-accent" aria-hidden="true" />
-      <blockquote className="mt-5 text-lg leading-relaxed tracking-[-0.01em] text-balance text-ink sm:text-xl">
+      <blockquote className="mt-6 font-display text-[clamp(1.25rem,2vw,1.625rem)] leading-snug font-medium tracking-[-0.015em] text-balance text-ink">
         <PlaceholderText>{quote}</PlaceholderText>
       </blockquote>
-      <figcaption className="mt-5 text-sm text-ink-subdued">
+      <figcaption className="mt-6 text-sm text-ink-subdued">
         <PlaceholderText>{attribution}</PlaceholderText>
       </figcaption>
     </figure>

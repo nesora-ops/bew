@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getCaseStudies, getCaseStudy } from "@/content";
 import { CtaSection } from "@/components/CtaSection";
-import { Breadcrumbs, Testimonial } from "@/components/content-blocks";
+import { PageHero } from "@/components/PageHero";
+import { Testimonial } from "@/components/content-blocks";
 import { Button } from "@/components/ui/Button";
-import { Container, Section, SectionHeading } from "@/components/ui/Section";
+import { Section } from "@/components/ui/Section";
 
 export function generateStaticParams() {
   return getCaseStudies().map((caseStudy) => ({ slug: caseStudy.slug }));
@@ -41,25 +42,16 @@ export default async function CaseStudyPage({
 
   return (
     <>
-      <section className="border-b border-line">
-        <Container>
-          <div className="py-14 sm:py-20">
-            <Breadcrumbs
-              trail={[
-                { label: "Home", href: "/" },
-                { label: "Case Studies", href: "/case-studies" },
-                { label: caseStudy.category },
-              ]}
-            />
-            <SectionHeading
-              as="h1"
-              eyebrow={caseStudy.category}
-              title={caseStudy.title}
-              description={`Certification: ${caseStudy.certification}`}
-            />
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Case Studies", href: "/case-studies" },
+          { label: caseStudy.category },
+        ]}
+        eyebrow={caseStudy.category}
+        title={caseStudy.title}
+        description={`Certification: ${caseStudy.certification}`}
+      />
 
       <Section>
         <div className="max-w-3xl space-y-10">

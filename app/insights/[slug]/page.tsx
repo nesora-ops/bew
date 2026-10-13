@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getInsight, getInsights } from "@/content";
 import { CtaSection } from "@/components/CtaSection";
-import { Breadcrumbs } from "@/components/content-blocks";
+import { PageHero } from "@/components/PageHero";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { Container, Section, SectionHeading } from "@/components/ui/Section";
+import { Section } from "@/components/ui/Section";
 import { PlaceholderText } from "@/components/ui/PlaceholderText";
 
 export function generateStaticParams() {
@@ -34,23 +34,16 @@ export default async function InsightPage({ params }: PageProps<"/insights/[slug
 
   return (
     <>
-      <section className="border-b border-line">
-        <Container>
-          <div className="py-14 sm:py-20">
-            <Breadcrumbs
-              trail={[
-                { label: "Home", href: "/" },
-                { label: "Insights", href: "/insights" },
-                { label: insight.category },
-              ]}
-            />
-            <SectionHeading as="h1" eyebrow={insight.category} title={insight.title} />
-            <p className="mt-5 text-sm text-ink-subdued">
-              <PlaceholderText>{insight.date}</PlaceholderText>
-            </p>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Insights", href: "/insights" },
+          { label: insight.category },
+        ]}
+        eyebrow={insight.category}
+        title={insight.title}
+        supporting={insight.date}
+      />
 
       <Section>
         <Card className="max-w-3xl">

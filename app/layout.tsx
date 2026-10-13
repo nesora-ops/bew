@@ -1,14 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Outfit } from "next/font/google";
+import { LeafShadows } from "@/components/ambient/LeafShadows";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { site } from "@/content/site";
 import "./globals.css";
 
 /**
- * Geist stands in for the reference site's Aspekta, which is available on neither npm
- * nor Google Fonts. Geist Mono is the reference's own mono face.
+ * Fonts. Outfit sets display type (the hero wordmark, h1/h2, the statement). Geist
+ * is the body and UI face. Geist Mono sets small labels and placeholders; it is not
+ * preloaded because nothing large or above-the-fold depends on it arriving first.
+ * All three are OFL Google Fonts, self-hosted by next/font.
  */
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+});
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -17,6 +25,7 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -39,7 +48,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
+      className={`${outfit.variable} ${geistSans.variable} ${geistMono.variable} h-full scroll-pt-header antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <a
@@ -48,6 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        <LeafShadows />
         <Header />
         <main id="main" className="flex-1">
           {children}

@@ -5,8 +5,9 @@ import { PlaceholderText } from "./PlaceholderText";
 /**
  * Card primitives.
  *
- * The reference's card: white surface, single hairline border, modest radius, no
- * shadow at rest. Icons sit in a tinted accent square.
+ * A soft surface with one hairline border and a generous radius. Grid cards stay
+ * flat (no shadow); only floating elements get elevation. Icons sit in a round
+ * tinted tile.
  */
 
 export function Card({
@@ -18,7 +19,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`rounded-card border border-line bg-surface p-6 sm:p-7 ${className}`}
+      className={`rounded-card border border-line bg-surface p-7 sm:p-8 ${className}`}
     >
       {children}
     </div>
@@ -27,7 +28,7 @@ export function Card({
 
 export function IconTile({ icon: Icon }: { icon: ComponentType<{ className?: string }> }) {
   return (
-    <span className="mb-5 inline-flex size-10 items-center justify-center rounded-lg bg-accent-soft text-accent">
+    <span className="mb-6 inline-flex size-11 items-center justify-center rounded-full bg-accent-soft text-accent">
       <Icon className="size-5" />
     </span>
   );
@@ -48,7 +49,7 @@ export function FeatureCard({
     <Card className="h-full">
       {icon ? <IconTile icon={icon} /> : null}
       {eyebrow ? (
-        <p className="mb-2 font-mono text-xs tracking-widest text-ink-subdued uppercase">
+        <p className="mb-3 font-mono text-xs tracking-widest text-ink-subdued uppercase">
           {eyebrow}
         </p>
       ) : null}
@@ -75,7 +76,7 @@ export function LinkCard({
   return (
     <Link
       href={href}
-      className={`group block h-full rounded-card border border-line bg-surface p-6 transition-colors duration-200 ease-out hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-canvas sm:p-7 ${className}`}
+      className={`group block h-full rounded-card border border-line bg-surface p-7 transition-[border-color,background-color] duration-(--dur-ui) ease-calm hover:border-ink/25 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-canvas sm:p-8 ${className}`}
     >
       {children}
     </Link>

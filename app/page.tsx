@@ -21,7 +21,7 @@ import {
   Testimonial,
 } from "@/components/content-blocks";
 import { Button } from "@/components/ui/Button";
-import { Card, FeatureCard } from "@/components/ui/Card";
+import { Card, FeatureCard, IconTile } from "@/components/ui/Card";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { PlaceholderText } from "@/components/ui/PlaceholderText";
 
@@ -273,9 +273,7 @@ export default function HomePage() {
           {audienceCtas.map((item) => (
             <li key={item.title}>
               <Card className="flex h-full flex-col">
-                <span className="mb-5 inline-flex size-10 items-center justify-center rounded-lg bg-accent-soft text-accent">
-                  <item.icon className="size-5" />
-                </span>
+                <IconTile icon={item.icon} />
                 <h3 className="text-lg font-medium tracking-[-0.01em] text-ink">
                   {item.title}
                 </h3>
@@ -337,9 +335,7 @@ export default function HomePage() {
 
         <div className="mt-12 grid gap-4 lg:grid-cols-2">
           <Card>
-            <span className="mb-5 inline-flex size-10 items-center justify-center rounded-lg bg-accent-soft text-accent">
-              <LineChart className="size-5" />
-            </span>
+            <IconTile icon={LineChart} />
             <h3 className="text-lg font-medium tracking-[-0.01em] text-ink">Leadership</h3>
             <p className="mt-2.5 text-[15px] leading-relaxed text-ink-subdued">
               <PlaceholderText>

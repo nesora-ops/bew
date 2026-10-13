@@ -10,7 +10,8 @@ import {
 import { CertificationGrid } from "@/components/CertificationCard";
 import { CtaSection } from "@/components/CtaSection";
 import { FaqAccordion } from "@/components/FaqAccordion";
-import { Breadcrumbs, BulletList } from "@/components/content-blocks";
+import { PageHero } from "@/components/PageHero";
+import { BulletList } from "@/components/content-blocks";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Container, Section, SectionHeading } from "@/components/ui/Section";
@@ -65,35 +66,28 @@ export default async function CertificationPage({
 
   return (
     <>
-      <section className="border-b border-line">
-        <Container>
-          <div className="py-14 sm:py-20">
-            <Breadcrumbs
-              trail={[
-                { label: "Home", href: "/" },
-                { label: "Certifications", href: "/certifications" },
-                { label: certification.shortName },
-              ]}
-            />
-            <SectionHeading
-              as="h1"
-              eyebrow={certification.category}
-              title={certification.name}
-              description={certification.tagline}
-            />
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Button href="/organizations#get-started">Start Your Certification</Button>
-              {/* The sample questionnaire PDF is an outstanding launch-checklist item. */}
-              <Button href="[Link to sample questionnaire PDF]" variant="secondary">
-                Download Sample Questionnaire
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Certifications", href: "/certifications" },
+          { label: certification.shortName },
+        ]}
+        eyebrow={certification.category}
+        title={certification.name}
+        description={certification.tagline}
+        actions={
+          <>
+            <Button href="/organizations#get-started">Start Your Certification</Button>
+            {/* The sample questionnaire PDF is an outstanding launch-checklist item. */}
+            <Button href="[Link to sample questionnaire PDF]" variant="secondary">
+              Download Sample Questionnaire
+            </Button>
+          </>
+        }
+      />
 
       {/* Key facts */}
-      <section className="border-b border-line bg-surface">
+      <section className="border-y border-line bg-surface">
         <Container>
           <dl className="grid gap-px sm:grid-cols-3">
             {facts.map((fact) => (

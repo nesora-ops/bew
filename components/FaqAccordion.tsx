@@ -13,14 +13,16 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
     <div className="border-t border-line">
       {items.map((item) => (
         <details key={item.question} className="group border-b border-line">
-          <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-5 text-[17px] font-medium tracking-[-0.01em] text-ink marker:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink [&::-webkit-details-marker]:hidden">
+          <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-6 text-[17px] font-medium tracking-[-0.01em] text-ink marker:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink [&::-webkit-details-marker]:hidden">
             <span>{item.question}</span>
-            <Plus
-              className="mt-1 size-4 shrink-0 text-ink-subdued transition-transform duration-200 group-open:rotate-45"
+            <span
               aria-hidden="true"
-            />
+              className="inline-flex size-7 shrink-0 items-center justify-center rounded-full border border-line text-ink-subdued transition-[transform,background-color] duration-(--dur-ui) ease-calm group-open:rotate-45 group-open:bg-accent-soft group-open:text-accent"
+            >
+              <Plus className="size-3.5" />
+            </span>
           </summary>
-          <p className="pb-5 text-[15px] leading-relaxed text-ink-subdued">
+          <p className="max-w-2xl pb-6 text-[15px] leading-relaxed text-ink-subdued">
             <PlaceholderText>{item.answer}</PlaceholderText>
           </p>
         </details>

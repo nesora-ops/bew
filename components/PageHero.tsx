@@ -1,12 +1,15 @@
 import type { ReactNode } from "react";
+import { Breadcrumbs } from "@/components/content-blocks";
 import { Container, SectionHeading } from "@/components/ui/Section";
 import { PlaceholderText } from "@/components/ui/PlaceholderText";
 
 /**
  * Page hero.
  *
- * One hero for every route. `accent` renders the second headline line in the accent
- * colour — the reference site's signature treatment.
+ * One hero for every route except the home page: an editorial, left-aligned
+ * headline over the site-wide leaf shadows. It pulls up under the floating header
+ * (`-mt-header pt-header`) so the page starts at the top edge. `accent` renders the
+ * second headline line in the accent green.
  */
 export function PageHero({
   eyebrow,
@@ -15,23 +18,29 @@ export function PageHero({
   description,
   supporting,
   actions,
-  align = "center",
+  breadcrumbs,
+  align = "left",
 }: {
   eyebrow?: string;
   title: string;
   accent?: string;
   description?: string;
-  /** Small line beneath the CTAs, e.g. the homepage's reassurance text. */
+  /** Small line beneath the CTAs, e.g. a publication date. */
   supporting?: string;
   actions?: ReactNode;
+  /** Trail for detail pages. */
+  breadcrumbs?: { label: string; href?: string }[];
   align?: "left" | "center";
 }) {
   return (
-    <section className="border-b border-line">
+    <section className="relative -mt-header overflow-x-clip pt-header">
       <Container>
         <div
-          className={`py-20 sm:py-24 lg:py-32 ${align === "center" ? "text-center" : ""}`}
+          className={`pt-14 pb-16 sm:pt-20 sm:pb-24 lg:pt-28 lg:pb-28 ${
+            align === "center" ? "text-center" : ""
+          }`}
         >
+          {breadcrumbs ? <Breadcrumbs trail={breadcrumbs} /> : null}
           <SectionHeading
             as="h1"
             eyebrow={eyebrow}
@@ -42,7 +51,7 @@ export function PageHero({
           />
           {actions ? (
             <div
-              className={`mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap ${
+              className={`mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap ${
                 align === "center" ? "sm:justify-center" : ""
               }`}
             >

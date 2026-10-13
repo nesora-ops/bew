@@ -4,9 +4,9 @@ import { Eyebrow } from "@/components/ui/Section";
 import { PlaceholderText } from "@/components/ui/PlaceholderText";
 
 /**
- * Closing call-to-action band, used at the foot of most pages.
+ * Closing call-to-action panel, used at the foot of most pages.
  *
- * Copy varies per page; the structure does not — which is why this is one component
+ * Copy varies per page; the structure does not, which is why this is one component
  * rather than the same markup repeated nine times.
  */
 export function CtaSection({
@@ -27,19 +27,19 @@ export function CtaSection({
   id?: string;
 }) {
   return (
-    <section id={id} className="border-b border-line bg-accent-soft">
+    <section id={id} className="py-12 sm:py-16 lg:py-20">
       <Container>
-        <div className="mx-auto max-w-3xl py-16 text-center sm:py-20 lg:py-24">
+        <div className="rounded-[32px] bg-accent-soft px-6 py-16 text-center sm:px-12 sm:py-20 lg:py-24">
           <Eyebrow>{eyebrow}</Eyebrow>
-          <h2 className="text-[30px] leading-[1.1] font-medium tracking-[-0.01em] text-balance text-ink sm:text-[38px] lg:text-[44px]">
+          <h2 className="mx-auto max-w-3xl font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.04] font-semibold tracking-[-0.025em] text-balance text-ink">
             <PlaceholderText>{title}</PlaceholderText>
           </h2>
           {description ? (
-            <p className="mx-auto mt-5 max-w-2xl text-[17px] leading-relaxed text-pretty text-ink-subdued">
+            <p className="mx-auto mt-6 max-w-2xl text-[17px] leading-relaxed text-pretty text-ink-subdued">
               <PlaceholderText>{description}</PlaceholderText>
             </p>
           ) : null}
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button href={primary.href} className="w-full sm:w-auto">
               {primary.label}
             </Button>

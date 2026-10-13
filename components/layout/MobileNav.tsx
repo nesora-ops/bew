@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { footerColumns, primaryNav } from "@/content/site";
 import { Button } from "@/components/ui/Button";
@@ -9,29 +9,49 @@ import { Button } from "@/components/ui/Button";
 /**
  * Mobile navigation.
  *
- * The only stateful client component on the site. Lists every route — including the
- * ones the desktop header does not have room for — so nothing is unreachable on a
- * small screen.
+ * A full-height sheet under the floating header, used below `xl` (where the pill row
+ * does not fit). Lists every route, including the ones the desktop header has no
+ * room for, so nothing is unreachable on a small screen. While open, the page behind
+ * it is inert, focus starts on the first link, and Escape closes it and returns focus
+ * to the toggle.
  */
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const close = () => setOpen(false);
 
-  // Lock scroll behind the panel.
+  // Lock scroll and make the covered page inert, so keyboard focus cannot wander
+  // into content the sheet hides.
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    if (!open) return;
+    const behind = document.querySelectorAll<HTMLElement>("main, body > footer");
+    document.body.style.overflow = "hidden";
+    behind.forEach((element) => element.setAttribute("inert", ""));
+    panelRef.current?.querySelector<HTMLElement>("a")?.focus();
     return () => {
       document.body.style.overflow = "";
+      behind.forEach((element) => element.removeAttribute("inert"));
     };
   }, [open]);
 
   useEffect(() => {
     if (!open) return;
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
     };
+    // The sheet is hidden from `xl` up; close it so the scroll lock and inert go too.
+    const wide = window.matchMedia("(min-width: 80rem)");
+    const onWide = () => wide.matches && setOpen(false);
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    wide.addEventListener("change", onWide);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      wide.removeEventListener("change", onWide);
+    };
   }, [open]);
 
   const secondaryLinks = footerColumns
@@ -44,14 +64,15 @@ export function MobileNav() {
     );
 
   return (
-    <div className="lg:hidden">
+    <div className="xl:hidden">
       <button
+        ref={toggleRef}
         type="button"
         onClick={() => setOpen((value) => !value)}
         aria-expanded={open}
         aria-controls="mobile-nav"
         aria-label={open ? "Close menu" : "Open menu"}
-        className="inline-flex size-10 items-center justify-center rounded-btn border border-line bg-surface text-ink transition-colors hover:bg-wash focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+        className="glass relative z-50 inline-flex size-11 items-center justify-center rounded-full text-ink transition-colors duration-(--dur-micro) ease-calm hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
       >
         {open ? <X className="size-5" /> : <Menu className="size-5" />}
       </button>
@@ -59,27 +80,30 @@ export function MobileNav() {
       {open ? (
         <div
           id="mobile-nav"
-          className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-line bg-canvas"
+          ref={panelRef}
+          className="fixed inset-0 z-40 overflow-y-auto bg-canvas pt-header"
         >
-          <nav aria-label="Mobile" className="px-5 py-6">
+          <nav aria-label="Mobile" className="mx-auto max-w-7xl px-4 pt-6 pb-12 sm:px-6">
             <ul className="flex flex-col">
               {primaryNav.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     onClick={close}
-                    className="block border-b border-line py-4 text-lg tracking-[-0.01em] text-ink"
+                    className="block border-b border-line py-4 font-display text-[28px] leading-tight font-medium tracking-[-0.02em] text-ink transition-colors rounded-sm hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
+            </ul>
+            <ul className="mt-8 grid grid-cols-1 gap-x-6 sm:grid-cols-2">
               {secondaryLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     onClick={close}
-                    className="block border-b border-line py-3.5 text-[15px] text-ink-subdued"
+                    className="block py-2.5 text-[15px] text-ink-subdued transition-colors rounded-sm hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink"
                   >
                     {link.label}
                   </Link>
@@ -87,7 +111,7 @@ export function MobileNav() {
               ))}
             </ul>
 
-            <Button href="/organizations#get-started" className="mt-6 w-full" onClick={close}>
+            <Button href="/organizations#get-started" className="mt-10 w-full" onClick={close}>
               Start Your Certification
             </Button>
           </nav>
