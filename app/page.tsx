@@ -18,7 +18,6 @@ import {
   CaseStudyCard,
   InsightCard,
   JourneyTimeline,
-  Stat,
   Testimonial,
 } from "@/components/content-blocks";
 import { Button } from "@/components/ui/Button";
@@ -82,14 +81,6 @@ const differentiators = [
     description:
       "BEW certifications are designed for stakeholders involved in capital allocation. Metrics are quantified, reporting is standardized, and impact is intended to be benchmarkable.",
   },
-];
-
-/** Source: §1 "Aggregate Impact Metrics" — every value is an unresolved placeholder. */
-const impactMetrics = [
-  { value: "[X] million", label: "Tons of CO2 equivalent avoided annually" },
-  { value: "[Y] million", label: "Liters of water conserved annually" },
-  { value: "[Z]K+", label: "Jobs supported in certified supply chains" },
-  { value: "[W]", label: "Communities reached through CSR initiatives" },
 ];
 
 /** Source: §1 "Calls to Action". */
@@ -256,11 +247,6 @@ export default function HomePage() {
             attribution="[Name, Title]"
           />
         </div>
-        <dl className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {impactMetrics.map((metric) => (
-            <Stat key={metric.label} value={metric.value} label={metric.label} />
-          ))}
-        </dl>
       </Section>
 
       {/* 7. Audience-specific CTAs */}
