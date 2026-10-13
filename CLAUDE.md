@@ -117,15 +117,19 @@ unedited as the historical brief.
   (`--ease-calm`), transform and opacity only, no scroll-jacking, and every animation has a
   reduced-motion fallback.
 - The greens are a proposal, not BEW brand: deep green `#1D5A3A` (`accent`), `accent-strong`
-  for text that needs more weight. No BEW brand palette exists yet; the `@theme` tokens are
-  the single swap point. The home hero wordmark is ink (`#121512`); the hero h1, card and the
-  statement use the dark green.
+  (`#0A3D1E`, the user's forest green) for text that needs more weight. No BEW brand palette
+  exists yet; the `@theme` tokens are the single swap point. The home hero is centred: the
+  wordmark is `accent-strong`, the h1 is ink; the statement uses the dark green.
 - The dappled leaf shadows are the site-wide ambient texture: one fixed layer in
   `app/layout.tsx`, behind content, at most 10% (near) and 6% (far) of the leaf green.
-- The home hero and the 404 use the static SVG dotted globe (`components/ui/globe.tsx`),
-  generated from Natural Earth by `scripts/build-globe-data.mjs`. In the hero it sits at 55%
-  opacity over a soft green `GlobeGlow`, so the headline stays readable over its dots. Keep it free of client JavaScript, and animate only with
-  compositor-friendly CSS on HTML elements (an animated SVG child repaints the whole globe).
+- Globes. Both are generated from Natural Earth by `scripts/build-globe-data.mjs`.
+  - Home hero: `components/home/AnimatedGlobe.tsx`, a canvas that re-projects the land grid
+    every frame so the Earth really turns (a CSS `rotateY` on a flat drawing flips it like a
+    coin). It loads client-only through `HeroGlobe` (`next/dynamic`, `ssr: false`) into a
+    reserved square box, so it never delays the LCP text or shifts layout. It caps at about
+    30 fps, pauses off screen, and is static under reduced motion. Motion (`motion/react`)
+    drives only its scroll rise and scale; its cities and arcs are decorative, with no data.
+  - 404: the static SVG dome (`components/ui/globe.tsx`), with no client JavaScript.
 - Fonts: Outfit for display (wordmark, h1/h2, statement), Geist for body and UI, Geist Mono
   for labels and placeholders, all through `next/font/google`.
 - The logo is a **placeholder**. Do not present it as final brand. The hero "Better Earth"

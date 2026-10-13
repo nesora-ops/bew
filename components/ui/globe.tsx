@@ -20,17 +20,6 @@ export function Globe({ className = "", ...props }: ComponentProps<"div">) {
   );
 }
 
-/** A soft blurred glow behind the globe. Position and colour it with `className`. */
-export function GlobeGlow({ className = "", ...props }: ComponentProps<"div">) {
-  return (
-    <div
-      aria-hidden="true"
-      className={`pointer-events-none absolute rounded-full blur-3xl ${className}`}
-      {...props}
-    />
-  );
-}
-
 export function GlobeSvg({ className = "", children, ...props }: ComponentProps<"svg">) {
   return (
     <svg
@@ -72,30 +61,6 @@ export function GlobeSvg({ className = "", children, ...props }: ComponentProps<
 
       {children}
     </svg>
-  );
-}
-
-/**
- * A pulsing marker, placed over the globe at (x, y) in its 1259x477 frame.
- * Decorative: it carries no data. It is an HTML element rather than SVG so the
- * pulse runs on the compositor; an animated SVG child would repaint the whole
- * globe on every frame.
- */
-export function GlobePin({
-  x,
-  y,
-  className = "",
-  ...props
-}: ComponentProps<"span"> & { x: number; y: number }) {
-  return (
-    <span
-      aria-hidden="true"
-      className={`absolute size-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent ${className}`}
-      style={{ left: `${(x / 1259) * 100}%`, top: `${(y / 477) * 100}%` }}
-      {...props}
-    >
-      <span className="absolute -inset-2 animate-pulse rounded-full bg-accent/20" />
-    </span>
   );
 }
 

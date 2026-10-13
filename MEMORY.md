@@ -20,8 +20,9 @@ Status:
 - **Database:** none in this repo.
 - **Authentication:** none.
 - **Styling:** Tailwind CSS v4 with CSS-variable design tokens in `app/globals.css` (`@theme`).
-  Light mode only. Motion is CSS only (keyframes plus scroll-driven animations behind
-  `@supports`); there is no motion library.
+  Light mode only. Motion is CSS (keyframes plus scroll-driven animations behind
+  `@supports`), except the hero globe's scroll rise and scale, which use `motion` 13.4.6
+  (`motion/react`, the user's request). It loads only in the lazy globe chunk.
 - **Fonts:** Outfit (display), Geist (body and UI) and Geist Mono (labels, placeholders), all via
   `next/font/google`. Geist Mono is not preloaded.
 - **Icons:** `lucide-react` (only runtime dependency added beyond the Next scaffold).
@@ -355,3 +356,24 @@ no console errors.
   export in `components/ui/globe.tsx` from that prompt; in the hero the globe is at 55% opacity
   over a `holo-deep` glow, with the three `GLOBE_PINS`. The empty `data-globe-slot` is gone.
 - Checked at 375 and 1440: no overflow, no console errors; tsc and lint clean.
+
+## 2026-10-13 — Session 3 (cont. 2): centred hero with a turning globe
+
+- Hero rebuilt from the user's mockup and prompt: centred "Global Authority" overline (the
+  user's own copy, not from the source doc), "Better Earth" wordmark in `accent-strong`,
+  h1 "The Global Sustainability Certification Authority" in ink, an outlined pill CTA. No
+  paragraph under the h1 (the prompt says so explicitly, though the mockup showed one).
+- `accent-strong` changed from `#133f28` to `#0a3d1e`, the forest green the user specified
+  twice. Darker, so every contrast pair using it improves.
+- New `components/home/AnimatedGlobe.tsx` (canvas, orthographic, 4,324 land dots from the
+  new `components/ui/globe-utils/globe-land-grid.ts`, 15 degree graticule, 18 decorative
+  cities and 20 arcs, one turn per 90 s) loaded by `HeroGlobe.tsx` with `next/dynamic`
+  `ssr: false`. Scroll: Motion `useScroll` on the globe's box, rising from 8% and scaling from
+  0.88 until it is fully in view. Deviation from the prompt: it asked for a Motion `rotateY`
+  on an SVG, which flips a flat drawing like a coin; the canvas re-projects instead.
+- `scripts/build-globe-data.mjs` now also writes the land grid; the 404's dome path output is
+  byte-identical. Pins (`GLOBE_PINS`, `GlobePin`) and `GlobeGlow` removed, plus the old
+  `.scroll-globe` CSS.
+- New dependency: `motion` 13.4.6 (exact; 14.x was days old).
+- Verified: build (30 routes), tsc, lint; at 1440 the globe rotates, pauses off screen and is
+  fully revealed by scroll; at 375 no overflow.
