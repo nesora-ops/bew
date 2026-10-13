@@ -3,8 +3,8 @@
 ## Current Status
 
 Status:
-- **Redesign (Session 2, 2026-10-13) is built and committed on branch `redesign/hologram-globe`,
-  not pushed.** The user is testing on localhost before pushing. 30 routes prerender.
+- **Redesign (Session 2, 2026-10-13) is merged to `main` and pushed live** (fast-forward, pushed
+  as nesora-ops on 2026-10-13). Vercel deploys `main` to production. 30 routes prerender.
 - What works: every page renders in the new system (off-white and dark green, Outfit display
   type, glass pill header, site-wide leaf shadows, dotted SVG globe hero); no horizontal overflow
   at 375 / 768 / 1280 / 1440 on all 26 pages; no console output; lint and typecheck clean;
@@ -25,7 +25,8 @@ Status:
 - **Fonts:** Outfit (display), Geist (body and UI) and Geist Mono (labels, placeholders), all via
   `next/font/google`. Geist Mono is not preloaded.
 - **Icons:** `lucide-react` (only runtime dependency added beyond the Next scaffold).
-- **Deployment:** not configured yet.
+- **Deployment:** Vercel, linked to `nesora-ops/bew`. Pushes to `main` deploy to production
+  (https://bew-rho.vercel.app). No custom domain yet.
 
 ## Current Routes
 
@@ -162,7 +163,7 @@ independence callout on `/assessors-partners`) rather than silently resolved.
 - [ ] Find Your Fit quiz
 - [ ] Legal copy for the four `/legal/*` stubs
 - [ ] Decide production domain (currently `https://betterearthworkplace.com` in `content/site.ts`)
-- [ ] Deployment configuration
+- [ ] Custom production domain on Vercel (currently `bew-rho.vercel.app`)
 - [ ] User testing of the redesign on localhost, then push `redesign/hologram-globe` as nesora-ops
 - [ ] Decide on the font trade-off for Lighthouse performance (see Known Issues)
 - [ ] Decide whether the `/certifications` stats row should go too (the home page's impact
@@ -309,6 +310,11 @@ Local preview configs `bew-dev` (3300) and `bew-prod` (3301) were added to the O
 | `d0703f3` | content: remove the home page impact metrics block |
 | `597602f` | perf: flatten the leaf shadow layers to two paths each |
 
+| `af4804b` | docs: update design rules and project memory |
+
+Pushed 2026-10-13 as nesora-ops: `main` fast-forwarded to the redesign branch and pushed
+(`56ae7c4..main`), the branch was pushed too. Vercel production deploys from `main`.
+
 ### Next Recommended Step
-User review on localhost (`npm run build && npm run start`, or `npm run dev`). Decide the font
-trade-off for Lighthouse performance, then push the branch as nesora-ops and open a PR.
+Check the production deploy at https://bew-rho.vercel.app. Decide the font trade-off for
+Lighthouse mobile performance (84–88 vs the 91–92 baseline).
