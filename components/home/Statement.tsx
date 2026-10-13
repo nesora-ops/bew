@@ -14,7 +14,7 @@ export function Statement({ lines, caption }: { lines: string[]; caption: string
     <section className="statement py-28 sm:py-36 lg:py-44">
       <Container>
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="statement-text font-display text-[clamp(2.25rem,5.2vw,4.75rem)] leading-[1.04] font-medium tracking-[-0.03em] text-balance text-ink [word-spacing:0.04em]">
+          <h2 className="statement-text font-display text-[clamp(2.25rem,5.2vw,4.75rem)] leading-[1.04] font-medium tracking-[-0.03em] text-balance text-accent [word-spacing:0.04em]">
             {lines.map((line) => (
               <span key={line} className="block">
                 {line}
@@ -23,11 +23,11 @@ export function Statement({ lines, caption }: { lines: string[]; caption: string
           </h2>
           <span
             aria-hidden="true"
-            className="statement-line mx-auto mt-14 block h-16 w-px bg-ink/30"
+            className="statement-line mx-auto mt-14 block h-16 w-px bg-accent/35"
           />
           <div className="statement-after">
             <BadgeCheck className="mx-auto mt-5 size-5 text-accent" aria-hidden="true" />
-            <p className="mx-auto mt-4 max-w-md text-[15px] leading-relaxed text-balance text-ink-subdued">
+            <p className="mx-auto mt-4 max-w-md text-[15px] leading-relaxed text-balance text-accent">
               {caption}
             </p>
           </div>

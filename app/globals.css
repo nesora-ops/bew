@@ -131,7 +131,7 @@ body {
 
 @keyframes globe-drift {
   to {
-    transform: translate3d(0, 30svh, 0) scale(1.12);
+    transform: translate3d(0, 12svh, 0) scale(1.04);
   }
 }
 
@@ -165,8 +165,8 @@ body {
 
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    /* Hero: the globe lags behind native scroll (about 0.7x), so the wordmark
-       slides up behind it. Transform only; nothing is pinned. */
+    /* Hero: the dotted globe lags slightly behind native scroll and grows a
+       little, for depth. Transform only; nothing is pinned. */
     .scroll-globe {
       animation: globe-drift linear both;
       animation-timeline: scroll(root block);
