@@ -129,17 +129,12 @@ export default function HomePage() {
 
   return (
     <>
-      {/* 1. Hero. Source §1 Hero: headline, secondary CTA, supporting text and stat,
-          primary CTA. The subheading becomes the statement's caption. */}
+      {/* 1. Hero. Source §1 Hero: headline and secondary CTA. The subheading becomes
+          the statement's caption. */}
       <HomeHero
         wordmark="Better Earth"
         title="The Global Sustainability Certification Authority"
         link={{ label: "Explore Our Certifications", href: "#certifications" }}
-        card={{
-          text: "No hidden requirements. Transparent process. Real impact.",
-          stat: "Trusted by [X] organizations across [Y] countries",
-          action: { label: "Start Your Certification", href: "/organizations#get-started" },
-        }}
       />
 
       {/* Statement. Source §1 "Outcome" line, captioned by the hero subheading. */}

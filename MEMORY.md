@@ -343,3 +343,15 @@ Lighthouse mobile performance (84–88 vs the 91–92 baseline).
 ### Testing
 `npx tsc --noEmit`, `npm run lint` clean. Preview at 375 / 768 / 1440: no horizontal overflow,
 no console errors.
+
+## 2026-10-13 — Session 3 (cont.)
+
+- Hero card removed at the user's request (the glass card with the arc, "No hidden
+  requirements..." line, the `[X]`/`[Y]` trust stat and the "Start Your Certification" button).
+  The header still carries that CTA; the trust stat no longer appears on the home page.
+- Hero wordmark reduced by 40% (`14.4vw` / `8.7vw` / `7.95rem`).
+- The green dotted globe is back in the hero (the user's shadcn globe prompt again; same
+  adaptation as Session 2: no shadcn, Radix, cva or invented tooltip data). New `GlobeGlow`
+  export in `components/ui/globe.tsx` from that prompt; in the hero the globe is at 55% opacity
+  over a `holo-deep` glow, with the three `GLOBE_PINS`. The empty `data-globe-slot` is gone.
+- Checked at 375 and 1440: no overflow, no console errors; tsc and lint clean.

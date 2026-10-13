@@ -20,6 +20,17 @@ export function Globe({ className = "", ...props }: ComponentProps<"div">) {
   );
 }
 
+/** A soft blurred glow behind the globe. Position and colour it with `className`. */
+export function GlobeGlow({ className = "", ...props }: ComponentProps<"div">) {
+  return (
+    <div
+      aria-hidden="true"
+      className={`pointer-events-none absolute rounded-full blur-3xl ${className}`}
+      {...props}
+    />
+  );
+}
+
 export function GlobeSvg({ className = "", children, ...props }: ComponentProps<"svg">) {
   return (
     <svg

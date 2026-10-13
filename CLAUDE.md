@@ -122,9 +122,9 @@ unedited as the historical brief.
   statement use the dark green.
 - The dappled leaf shadows are the site-wide ambient texture: one fixed layer in
   `app/layout.tsx`, behind content, at most 10% (near) and 6% (far) of the leaf green.
-- The home hero has an empty globe slot (`data-globe-slot` in `components/home/HomeHero.tsx`)
-  for a globe the user is supplying. The 404 horizon still uses the static SVG globe
-  (`components/ui/globe.tsx`), generated from Natural Earth by `scripts/build-globe-data.mjs`. Keep it free of client JavaScript, and animate only with
+- The home hero and the 404 use the static SVG dotted globe (`components/ui/globe.tsx`),
+  generated from Natural Earth by `scripts/build-globe-data.mjs`. In the hero it sits at 55%
+  opacity over a soft green `GlobeGlow`, so the headline stays readable over its dots. Keep it free of client JavaScript, and animate only with
   compositor-friendly CSS on HTML elements (an animated SVG child repaints the whole globe).
 - Fonts: Outfit for display (wordmark, h1/h2, statement), Geist for body and UI, Geist Mono
   for labels and placeholders, all through `next/font/google`.
