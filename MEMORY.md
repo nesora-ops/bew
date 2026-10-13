@@ -323,3 +323,23 @@ Vercel built and deployed `caa606d` successfully (GitHub status: "Deployment has
 Check the production deploy at https://bew-nesora-ops-projects.vercel.app (needs a Vercel login
 while Deployment Protection is on). Decide the font trade-off for
 Lighthouse mobile performance (84–88 vs the 91–92 baseline).
+
+## 2026-10-13 — Session 3
+
+### Work Completed
+- Home hero: the "Better Earth" wordmark is back to ink (`#121512`) and the dotted globe is
+  removed from the hero. An empty `data-globe-slot` div keeps the old globe's box (aspect
+  1259/477, same margins, still `scroll-globe`) for a globe the user will supply. The 404 keeps
+  the dotted globe horizon. `GlobePin` and `GLOBE_PINS` are now unused (left in place; the
+  latter lives in the generated `svg-globe-path.ts`). Commit `cfcb94c`, pushed live.
+- Home "The problem we solve" rebuilt from a user mockup as `components/home/ProblemGrid.tsx`:
+  an asymmetric hairline grid (heading left, challenge and gap stacked in the middle, the
+  solution as a solid `accent-strong` panel on the right), `01 / THE CHALLENGE` mono labels and
+  large ghost numbers. Copy is unchanged from the source; the old "Label: Title" strings are
+  split into `label` and `title`. The panel's bottom is left empty on purpose: the mockup's
+  "Learn more about our verification" link is not source copy.
+- Display type stays Outfit; the mockup used a serif, which would be a site-wide decision.
+
+### Testing
+`npx tsc --noEmit`, `npm run lint` clean. Preview at 375 / 768 / 1440: no horizontal overflow,
+no console errors.

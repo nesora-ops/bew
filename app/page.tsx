@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
 import {
   Building2,
-  Globe2,
   LineChart,
   Newspaper,
-  ScrollText,
-  ShieldCheck,
   Users,
 } from "lucide-react";
 import { getCaseStudies, getCertifications, getInsights } from "@/content";
 import { headlineTimeline, journeyStages } from "@/content/journey";
 import { HomeHero } from "@/components/home/HomeHero";
+import { ProblemGrid } from "@/components/home/ProblemGrid";
 import { Statement } from "@/components/home/Statement";
 import { CertificationGrid } from "@/components/CertificationCard";
 import { CtaSection } from "@/components/CtaSection";
@@ -33,26 +31,30 @@ export const metadata: Metadata = {
 };
 
 /** Source: BEW_Consolidated_Deduplicated.md §1 "The Problem We Solve". */
-const problemPoints = [
+const problemPoints: [
+  { label: string; title: string; description: string },
+  { label: string; title: string; description: string },
+] = [
   {
-    icon: ScrollText,
-    title: "The Challenge: Sustainability Claims Without Proof",
+    label: "The Challenge",
+    title: "Sustainability Claims Without Proof",
     description:
       "Organizations often rely on self-reported data without independent verification, creating stakeholder doubt.",
   },
   {
-    icon: Globe2,
-    title: "The Gap: No Single Standard",
+    label: "The Gap",
+    title: "No Single Standard",
     description:
       "ISO standards, ESG reporting, CSR guidelines, and other frameworks can tell different stories. Organizations struggle to demonstrate comparability and often face expensive consultants, unclear pathways, and wasted resources.",
   },
-  {
-    icon: ShieldCheck,
-    title: "The Solution: Independent, Credible Verification",
-    description:
-      "Better Earth Workplaces provides rigorous third-party certification aligned with global standards. Impact is measured, verified, documented, and designed to be recognized by investors, regulators, customers, and other stakeholders.",
-  },
 ];
+
+const problemSolution = {
+  label: "The Solution",
+  title: "Independent, Credible Verification",
+  description:
+    "Better Earth Workplaces provides rigorous third-party certification aligned with global standards. Impact is measured, verified, documented, and designed to be recognized by investors, regulators, customers, and other stakeholders.",
+};
 
 /** Source: §1 "Why Choose Better Earth Workplaces". */
 const differentiators = [
@@ -147,25 +149,17 @@ export default function HomePage() {
       />
 
       {/* 2. The problem we solve */}
-      <Section>
-        <SectionHeading
-          eyebrow="The problem we solve"
-          title="Stakeholders demand proof."
-          accent="We provide it."
-          description="Investors, customers, and employees are increasingly skeptical of unverified sustainability claims. Greenwashing is widespread, while sustainability frameworks remain fragmented."
-        />
-        <ul className="mt-12 grid gap-4 lg:grid-cols-3">
-          {problemPoints.map((point) => (
-            <li key={point.title}>
-              <FeatureCard
-                icon={point.icon}
-                title={point.title}
-                description={point.description}
-              />
-            </li>
-          ))}
-        </ul>
-      </Section>
+      <ProblemGrid
+        heading={{
+          eyebrow: "The problem we solve",
+          title: "Stakeholders demand proof.",
+          accent: "We provide it.",
+          description:
+            "Investors, customers, and employees are increasingly skeptical of unverified sustainability claims. Greenwashing is widespread, while sustainability frameworks remain fragmented.",
+        }}
+        points={problemPoints}
+        solution={problemSolution}
+      />
 
       {/* 3. Why Better Earth Workplaces */}
       <Section>
