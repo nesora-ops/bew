@@ -10,7 +10,8 @@ import {
 } from "lucide-react";
 import { getCaseStudies, getCertifications, getInsights } from "@/content";
 import { headlineTimeline, journeyStages } from "@/content/journey";
-import { PageHero } from "@/components/PageHero";
+import { HomeHero } from "@/components/home/HomeHero";
+import { Statement } from "@/components/home/Statement";
 import { CertificationGrid } from "@/components/CertificationCard";
 import { CtaSection } from "@/components/CtaSection";
 import {
@@ -135,20 +136,23 @@ export default function HomePage() {
 
   return (
     <>
-      {/* 1. Hero */}
-      <PageHero
-        title="The Global Sustainability"
-        accent="Certification Authority"
-        description="Third-party verified credentials that prove your environmental and social impact to investors, customers, and stakeholders."
-        supporting="No hidden requirements. Transparent process. Real impact. Trusted by [X] organizations across [Y] countries."
-        actions={
-          <>
-            <Button href="/organizations#get-started">Start Your Certification</Button>
-            <Button href="/certifications" variant="secondary">
-              Explore Our Certifications
-            </Button>
-          </>
-        }
+      {/* 1. Hero. Source §1 Hero: headline, secondary CTA, supporting text and stat,
+          primary CTA. The subheading becomes the statement's caption. */}
+      <HomeHero
+        wordmark="Better Earth"
+        title="The Global Sustainability Certification Authority"
+        link={{ label: "Explore Our Certifications", href: "#certifications" }}
+        card={{
+          text: "No hidden requirements. Transparent process. Real impact.",
+          stat: "Trusted by [X] organizations across [Y] countries",
+          action: { label: "Start Your Certification", href: "/organizations#get-started" },
+        }}
+      />
+
+      {/* Statement. Source §1 "Outcome" line, captioned by the hero subheading. */}
+      <Statement
+        lines={["Investor confidence.", "Stakeholder trust.", "Competitive advantage."]}
+        caption="Third-party verified credentials that prove your environmental and social impact to investors, customers, and stakeholders."
       />
 
       {/* 2. The problem we solve */}
@@ -170,10 +174,6 @@ export default function HomePage() {
             </li>
           ))}
         </ul>
-        <p className="mt-8 text-[15px] text-ink-subdued">
-          <span className="font-medium text-ink">Outcome:</span> Investor confidence.
-          Stakeholder trust. Competitive advantage.
-        </p>
       </Section>
 
       {/* 3. Why Better Earth Workplaces */}
@@ -197,7 +197,7 @@ export default function HomePage() {
       </Section>
 
       {/* 4. Seven certification pathways */}
-      <Section>
+      <Section id="certifications">
         <SectionHeading
           eyebrow="Our certifications"
           title="Seven pathways to"
