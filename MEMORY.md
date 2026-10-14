@@ -403,3 +403,29 @@ no console errors.
   Copy unchanged from the source. The home page no longer imports `FeatureCard` (still used
   on other pages).
 - Checked at 1440 (titles aligned per row, no doubled lines) and 375 (stacked, no overflow).
+
+## 2026-10-14 — Session 4: interactive two-tone globe and the green band
+
+- Designed with the user on a canvas mockup first, then built. Hero: the subheading paragraph
+  is removed (it stays as the statement's caption), the call to action is solid
+  `accent-strong` with off-white text, and the "Global Authority" overline is bold with a soft
+  text shadow.
+- New `components/home/InteractiveGlobe.tsx` (loaded client-only by `HeroGlobe.tsx`): canvas,
+  orthographic, land dots from the restored `globe-land-grid.ts` (110x220 grid; the generator
+  in `scripts/build-globe-data.mjs` is restored from 9e05f19). Split in two tones at the
+  canvas centre line. Still by default (no idle rAF); hover eases it toward the pointer
+  (up to 32 deg yaw, 20 deg pitch), drag spins both axes with momentum (friction 0.95), a
+  click flicks it. Reduced motion: drag only. `touch-pan-y` so phones still scroll.
+- `public/hero-globe.webp` deleted (orphaned).
+- Green band: a wrapper in `app/page.tsx` around `Statement` and `ProblemGrid`, styled by
+  `.green-band` in `globals.css`: three mask layers (bottom dome ∩ (concave top SVG ∪ solid
+  below)), all sized from the new `--hero-globe` token (`min(88vw, 42rem)`). Gotchas found:
+  Chrome rejects `calc()` in a radial-gradient ellipse size (the whole mask computes to
+  `none`), and abutting mask layers leave hairline seams, so the solid layer overlaps the
+  SVG by 2px and the green fill stops 3px short of the box bottom.
+- `SectionHeading` and `Eyebrow` gained an `inverse` prop; `LeafShadows.tsx` exports
+  `LeafLight` (the same leaves in off-white for the green band).
+- Checked in the browser at 1440 (split, curve, dome, no seams; hover and drag turn the globe)
+  and 375 (no horizontal overflow; the curve is off screen at phone width, so the split reads
+  flat there). Typecheck and lint clean. Committed as af7ac6a and pushed to `main` as
+  nesora-ops on 2026-10-14.
