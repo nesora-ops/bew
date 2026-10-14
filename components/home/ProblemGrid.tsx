@@ -5,10 +5,11 @@ type ProblemPoint = { label: string; title: string; description: string };
 /**
  * Home "The problem we solve" section.
  *
- * An asymmetric editorial grid drawn with hairlines instead of cards: the heading
- * on the left, the challenge and the gap stacked in the middle, and the solution as
- * a solid deep-green panel on the right. The vertical rules run the full height of
- * the section, so the cells carry their own padding rather than the section.
+ * An asymmetric editorial grid drawn with hairlines instead of cards, on the green
+ * band: the heading on the left, the challenge and the gap stacked in the middle, and
+ * the solution as a solid off-white panel on the right. The vertical rules run the
+ * full height of the section, so the cells carry their own padding rather than the
+ * section.
  */
 export function ProblemGrid({
   heading,
@@ -20,27 +21,27 @@ export function ProblemGrid({
   solution: ProblemPoint;
 }) {
   return (
-    <section className="my-12 border-y border-line sm:my-16">
+    <section className="my-12 border-y border-canvas/15 sm:my-16">
       <Container>
-        <div className="grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,1fr)] lg:border-x lg:border-line">
+        <div className="grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,1fr)] lg:border-x lg:border-canvas/15">
           <div className="py-16 sm:py-20 lg:py-28 lg:pr-12 lg:pl-10">
-            <SectionHeading {...heading} />
+            <SectionHeading {...heading} inverse />
           </div>
 
-          <ol className="border-line lg:border-x">
+          <ol className="border-canvas/15 lg:border-x">
             {points.map((point, i) => (
               <li
                 key={point.label}
-                className="border-t border-line py-10 sm:py-12 lg:px-8 lg:py-14 lg:first:border-t-0"
+                className="border-t border-canvas/15 py-10 sm:py-12 lg:px-8 lg:py-14 lg:first:border-t-0"
               >
-                <Point index={i + 1} point={point} />
+                <Point index={i + 1} point={point} inverse />
               </li>
             ))}
           </ol>
 
           <div className="pb-16 sm:pb-20 lg:p-3 lg:pb-3">
-            <div className="flex h-full flex-col rounded-[6px] bg-accent-strong px-7 py-10 text-white sm:px-9 lg:py-14">
-              <Point index={3} point={solution} inverse />
+            <div className="flex h-full flex-col rounded-[6px] bg-canvas px-7 py-10 sm:px-9 lg:py-14">
+              <Point index={3} point={solution} />
             </div>
           </div>
         </div>

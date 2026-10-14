@@ -45,9 +45,13 @@ export function Section({
   );
 }
 
-export function Eyebrow({ children }: { children: string }) {
+export function Eyebrow({ children, inverse = false }: { children: string; inverse?: boolean }) {
   return (
-    <p className="mb-5 font-mono text-xs font-medium tracking-widest text-ink-subdued uppercase">
+    <p
+      className={`mb-5 font-mono text-xs font-medium tracking-widest uppercase ${
+        inverse ? "text-canvas/65" : "text-ink-subdued"
+      }`}
+    >
       {children}
     </p>
   );
@@ -56,7 +60,8 @@ export function Eyebrow({ children }: { children: string }) {
 /**
  * Section heading.
  *
- * `accent` renders as a second line in the accent green.
+ * `accent` renders as a second line in the accent green. `inverse` sets it for a dark
+ * green surface.
  */
 export function SectionHeading({
   eyebrow,
@@ -65,6 +70,7 @@ export function SectionHeading({
   description,
   align = "left",
   as: Heading = "h2",
+  inverse = false,
 }: {
   eyebrow?: string;
   title: string;
@@ -72,6 +78,7 @@ export function SectionHeading({
   description?: string;
   align?: "left" | "center";
   as?: "h1" | "h2";
+  inverse?: boolean;
 }) {
   const isCentered = align === "center";
   const isDisplay = Heading === "h1";
@@ -83,13 +90,13 @@ export function SectionHeading({
 
   return (
     <div className={`${isCentered ? `mx-auto ${width} text-center` : width}`}>
-      {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-      <Heading className={`font-display ${size} text-balance text-ink`}>
+      {eyebrow ? <Eyebrow inverse={inverse}>{eyebrow}</Eyebrow> : null}
+      <Heading className={`font-display ${size} text-balance ${inverse ? "text-canvas" : "text-ink"}`}>
         <PlaceholderText>{title}</PlaceholderText>
         {accent ? (
           <>
             <br />
-            <span className="text-accent">
+            <span className={inverse ? "text-accent-soft-strong" : "text-accent"}>
               <PlaceholderText>{accent}</PlaceholderText>
             </span>
           </>
@@ -97,7 +104,9 @@ export function SectionHeading({
       </Heading>
       {description ? (
         <p
-          className={`mt-6 text-[17px] leading-relaxed text-pretty text-ink-subdued sm:text-lg ${
+          className={`mt-6 text-[17px] leading-relaxed text-pretty sm:text-lg ${
+            inverse ? "text-canvas/80" : "text-ink-subdued"
+          } ${
             isCentered ? "mx-auto" : ""
           } ${isDisplay ? "max-w-2xl" : ""}`}
         >

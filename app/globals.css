@@ -58,6 +58,9 @@
   --dur-ui: 320ms;
   --dur-reveal: 640ms;
   --dur-hero: 1200ms;
+
+  /* Width of the home hero globe. The green band below it is drawn from the same value. */
+  --hero-globe: min(88vw, 42rem);
 }
 
 html {
@@ -100,6 +103,52 @@ body {
   /* Must wrap: several source placeholders are long sentences, and nowrap forced
      horizontal overflow on narrow screens. */
   overflow-wrap: anywhere;
+}
+
+/*
+ * The home page's green band (statement and problem grid), cut by three mask layers so
+ * the canvas and its leaf shadows show through the cut-outs:
+ * - top: the green starts at the hero globe's equator, as wide as the globe, and
+ *   curves concavely down and out to full width. The SVG is 3.2 globe widths wide (the
+ *   globe spans 528 to 1008 of its 1536 units) and 0.625 globe widths tall.
+ * - below that curve: everything is green.
+ * - bottom: an off-white dome rises back into the green.
+ * The first layer intersects with the union of the other two.
+ * The green stops 3px short of the bottom: the mask leaves the box's last fractional
+ * pixel row uncovered, and that row would otherwise show as a green hairline.
+ */
+.green-band {
+  --dome: clamp(4rem, 12vw, 11rem);
+  background: linear-gradient(var(--color-accent-strong), var(--color-accent-strong)) top / 100%
+    calc(100% - 3px) no-repeat;
+  -webkit-mask-image:
+    radial-gradient(ellipse 50.3% var(--dome) at 50% calc(100% + 2px), transparent 99.5%, #000 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1536 300'%3E%3Cpath d='M528 0H1008C1308 0 1478 150 1536 300H0C58 150 228 0 528 0Z'/%3E%3C/svg%3E"),
+    linear-gradient(#000, #000);
+  mask-image:
+    radial-gradient(ellipse 50.3% var(--dome) at 50% calc(100% + 2px), transparent 99.5%, #000 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1536 300'%3E%3Cpath d='M528 0H1008C1308 0 1478 150 1536 300H0C58 150 228 0 528 0Z'/%3E%3C/svg%3E"),
+    linear-gradient(#000, #000);
+  -webkit-mask-size:
+    100% 100%,
+    calc(var(--hero-globe) * 3.2) calc(var(--hero-globe) * 0.625),
+    100% 100%;
+  mask-size:
+    100% 100%,
+    calc(var(--hero-globe) * 3.2) calc(var(--hero-globe) * 0.625),
+    100% 100%;
+  -webkit-mask-position:
+    0 0,
+    50% 0,
+    0 calc(var(--hero-globe) * 0.625 - 2px);
+  mask-position:
+    0 0,
+    50% 0,
+    0 calc(var(--hero-globe) * 0.625 - 2px);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-composite: source-in, source-over;
+  mask-composite: intersect, add;
 }
 
 /*

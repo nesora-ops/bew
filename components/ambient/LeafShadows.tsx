@@ -97,12 +97,14 @@ function Layer({
   stem,
   filterId,
   align,
+  color = LEAF,
 }: {
   branches: Branch[];
   blur: number;
   stem: number;
   filterId: string;
   align: "xMinYMid" | "xMaxYMid";
+  color?: string;
 }) {
   const { leaves, stems } = layerPaths(branches);
   return (
@@ -113,8 +115,8 @@ function Layer({
         </filter>
       </defs>
       <g filter={`url(#${filterId})`}>
-        <path d={stems} fill="none" stroke={LEAF} strokeWidth={stem} strokeLinecap="round" />
-        <path d={leaves} fill={LEAF} />
+        <path d={stems} fill="none" stroke={color} strokeWidth={stem} strokeLinecap="round" />
+        <path d={leaves} fill={color} />
       </g>
     </svg>
   );
@@ -128,6 +130,23 @@ export function LeafShadows() {
       </div>
       <div className="leaf-drift-near absolute -inset-[4%] opacity-[0.1] will-change-transform">
         <Layer branches={NEAR} blur={2.5} stem={4} filterId="leaves-near" align="xMaxYMid" />
+      </div>
+    </div>
+  );
+}
+
+/**
+ * The same leaves as light rather than shadow, for a dark green surface: off-white
+ * at 8% (near) and 5% (far). It fills its positioned parent instead of the viewport.
+ */
+export function LeafLight() {
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+      <div className="leaf-drift-far absolute -inset-[4%] opacity-[0.05] will-change-transform">
+        <Layer branches={FAR} blur={6} stem={3} filterId="leaves-far-light" align="xMinYMid" color="#f4f4f0" />
+      </div>
+      <div className="leaf-drift-near absolute -inset-[4%] opacity-[0.08] will-change-transform">
+        <Layer branches={NEAR} blur={2.5} stem={4} filterId="leaves-near-light" align="xMaxYMid" color="#f4f4f0" />
       </div>
     </div>
   );

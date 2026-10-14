@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { getCaseStudies, getCertifications, getInsights } from "@/content";
 import { headlineTimeline, journeyStages } from "@/content/journey";
+import { LeafLight } from "@/components/ambient/LeafShadows";
 import { DifferentiatorGrid } from "@/components/home/DifferentiatorGrid";
 import { HomeHero } from "@/components/home/HomeHero";
 import { ProblemGrid } from "@/components/home/ProblemGrid";
@@ -130,35 +131,41 @@ export default function HomePage() {
 
   return (
     <>
-      {/* 1. Hero. Source §1 Hero: headline, subheading and secondary CTA. The
-          subheading is also the statement's caption. The "Global Authority" overline is the user's own
-          copy (2026-10-13), not from the source doc. */}
+      {/* 1. Hero. Source §1 Hero: headline and secondary CTA. The subheading is the
+          statement's caption. The "Global Authority" overline is the user's own copy
+          (2026-10-13), not from the source doc. */}
       <HomeHero
         overline="Global Authority"
         wordmark="Better Earth"
         title="The Global Sustainability Certification Authority"
-        description="Third-party verified credentials that prove your environmental and social impact to investors, customers, and stakeholders."
         link={{ label: "Explore Our Certifications", href: "#certifications" }}
       />
 
-      {/* Statement. Source §1 "Outcome" line, captioned by the hero subheading. */}
-      <Statement
-        lines={["Investor confidence.", "Stakeholder trust.", "Competitive advantage."]}
-        caption="Third-party verified credentials that prove your environmental and social impact to investors, customers, and stakeholders."
-      />
+      {/* The green band: starts at the hero globe's equator and curves out to full
+          width, then an off-white dome closes it (`.green-band` in globals.css). */}
+      <div className="green-band relative pt-[calc(var(--hero-globe)*0.5)] pb-[clamp(4rem,12vw,11rem)]">
+        <LeafLight />
+        <div className="relative">
+          {/* Statement. Source §1 "Outcome" line, captioned by the hero subheading. */}
+          <Statement
+            lines={["Investor confidence.", "Stakeholder trust.", "Competitive advantage."]}
+            caption="Third-party verified credentials that prove your environmental and social impact to investors, customers, and stakeholders."
+          />
 
-      {/* 2. The problem we solve */}
-      <ProblemGrid
-        heading={{
-          eyebrow: "The problem we solve",
-          title: "Stakeholders demand proof.",
-          accent: "We provide it.",
-          description:
-            "Investors, customers, and employees are increasingly skeptical of unverified sustainability claims. Greenwashing is widespread, while sustainability frameworks remain fragmented.",
-        }}
-        points={problemPoints}
-        solution={problemSolution}
-      />
+          {/* 2. The problem we solve */}
+          <ProblemGrid
+            heading={{
+              eyebrow: "The problem we solve",
+              title: "Stakeholders demand proof.",
+              accent: "We provide it.",
+              description:
+                "Investors, customers, and employees are increasingly skeptical of unverified sustainability claims. Greenwashing is widespread, while sustainability frameworks remain fragmented.",
+            }}
+            points={problemPoints}
+            solution={problemSolution}
+          />
+        </div>
+      </div>
 
       {/* 3. Why Better Earth Workplaces */}
       <DifferentiatorGrid
