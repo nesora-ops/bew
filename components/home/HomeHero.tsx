@@ -27,8 +27,8 @@ export function HomeHero({
   const [first, ...rest] = wordmark.split(" ");
 
   return (
-    <section className="relative overflow-x-clip">
-      <Container>
+    <section className="relative flex min-h-[calc(100svh-var(--spacing-header))] flex-col overflow-x-clip">
+      <Container className="flex flex-1 flex-col justify-center pb-10">
         <div className="flex flex-col items-center pt-8 text-center sm:pt-9">
           <p className="text-sm font-bold tracking-[0.3em] text-accent-strong uppercase [text-shadow:0_1px_1px_rgb(10_61_30/0.25),0_2px_12px_rgb(10_61_30/0.35)] sm:text-base">
             {overline}
@@ -56,9 +56,11 @@ export function HomeHero({
         </div>
       </Container>
 
-      {/* The square box is reserved before the client-only globe arrives. Its lower
-          half overhangs into the green band. */}
-      <div className="relative z-10 mx-auto mt-10 mb-[calc(var(--hero-globe)*-0.5)] aspect-square w-(--hero-globe)">
+      {/* The square box is reserved before the client-only globe arrives. The hero is
+          one screen tall (below the header) with the globe at its foot, so on landing
+          the equator sits on the fold: the upper half shows and the green band starts
+          just below. The lower half overhangs into the band. */}
+      <div className="relative z-10 mx-auto mb-[calc(var(--hero-globe)*-0.5)] aspect-square w-(--hero-globe) shrink-0">
         <HeroGlobe />
       </div>
     </section>

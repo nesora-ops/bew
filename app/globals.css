@@ -59,8 +59,10 @@
   --dur-reveal: 640ms;
   --dur-hero: 1200ms;
 
-  /* Width of the home hero globe. The green band below it is drawn from the same value. */
-  --hero-globe: min(88vw, 42rem);
+  /* Width of the home hero globe. The green band below it is drawn from the same value.
+     Up to 52rem, but never so tall that its upper half and the hero text (about 22rem,
+     plus the 4.5rem header) overflow the first screen; never wider than 92vw. */
+  --hero-globe: min(92vw, max(20rem, min(52rem, calc((100svh - 26.5rem) * 2))));
 }
 
 html {

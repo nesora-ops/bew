@@ -429,3 +429,8 @@ no console errors.
   and 375 (no horizontal overflow; the curve is off screen at phone width, so the split reads
   flat there). Typecheck and lint clean. Committed as af7ac6a and pushed to `main` as
   nesora-ops on 2026-10-14.
+- Follow-up: on landing only the globe's upper half shows. The hero is
+  `min-h-[calc(100svh-header)]` with the globe at its foot, so the equator (and the band's
+  top) sits on the fold. `--hero-globe` is now `min(92vw, max(20rem, min(52rem,
+  (100svh - 26.5rem) * 2)))`: 832px at 1440x900, 688px at 1366x768, 345px at 375x812, with
+  the equator measured exactly at the viewport bottom in all three.
