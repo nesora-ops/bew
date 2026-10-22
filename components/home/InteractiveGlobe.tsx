@@ -1,17 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { LAND_GRID } from "@/components/ui/globe-utils/globe-land-grid";
+import { geoOrthographic, geoPath } from "d3-geo";
+import { LAND_SHAPES } from "@/components/ui/globe-utils/globe-land-shapes";
 
 /**
- * The home hero's globe: a dot-matrix Earth with a graticule, split in two tones at
+ * The home hero's globe: an Earth with filled land and a graticule, split in two tones at
  * its equator line. Above the line it is green on the off-white canvas; below it is
  * off-white on the green band that starts there.
  *
  * It is drawn on a canvas and re-projected on every frame it moves (orthographic),
  * because spinning a flat drawing with CSS flips it like a coin rather than turning a
- * sphere. Land comes from Natural Earth via LAND_GRID. The split stays fixed on
- * screen while the sphere turns behind it.
+ * sphere. Land comes from Natural Earth via LAND_SHAPES, projected and clipped at the
+ * horizon by d3-geo. The split stays fixed on screen while the sphere turns behind it.
  *
  * It is still by default and only animates in response to the pointer:
  * - hover: the globe turns toward the pointer, up, down and sideways;
@@ -45,22 +46,6 @@ const toVec = (lat: number, lon: number): [number, number, number] => [
   Math.sin(lat * DEG),
   Math.cos(lat * DEG) * Math.cos(lon * DEG),
 ];
-
-/** Land dots as unit vectors, flattened [x, y, z, x, y, z, ...]. */
-function landPoints(): Float32Array {
-  const { rows, cols, runs } = LAND_GRID;
-  const out: number[] = [];
-  runs.forEach((row, i) => {
-    const lat = -90 + ((i + 0.5) * 180) / rows;
-    const n = Math.max(1, Math.round(cols * Math.cos(lat * DEG)));
-    for (let k = 0; k < row.length; k += 2) {
-      for (let j = row[k]; j < row[k] + row[k + 1]; j++) {
-        out.push(...toVec(lat, -180 + ((j + 0.5) * 360) / n));
-      }
-    }
-  });
-  return new Float32Array(out);
-}
 
 /** Parallels and meridians every 15 degrees, each as flattened unit vectors. */
 function graticule(): Line[] {
@@ -98,7 +83,7 @@ export default function InteractiveGlobe() {
 
     const green = token("--color-accent-strong", "#0a3d1e");
     const paper = token("--color-canvas", "#f4f4f0");
-    const land = landPoints();
+    const sphere = geoOrthographic().clipAngle(90).precision(0.3);
     const lines = graticule();
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -164,21 +149,19 @@ export default function InteractiveGlobe() {
         }
       }
 
-      // Land dots in three depth bands per tone, so the limb fades and each band is one fill.
-      const bands = [0.34, 0.67, 1];
-      const top = bands.map(() => new Path2D());
-      const bottom = bands.map(() => new Path2D());
-      const dot = Math.max(0.9, size / 330) * dpr;
-      for (let i = 0; i < land.length; i += 3) {
-        project(land, i);
-        const z = out[2];
-        if (z <= 0.02) continue;
-        const band = Math.min(2, Math.floor(z * 3));
-        const radius = dot * (0.55 + 0.45 * z);
-        const path = out[1] < half ? top[band] : bottom[band];
-        path.moveTo(out[0] + radius, out[1]);
-        path.arc(out[0], out[1], radius, 0, Math.PI * 2);
-      }
+      // Land, in the same orientation as `project`: the view's centre is at longitude
+      // -yaw and latitude pitch.
+      sphere.scale(r).translate([half, half]).rotate([view.yaw / DEG, -view.pitch / DEG]);
+      const land = new Path2D(geoPath(sphere)(LAND_SHAPES) ?? "");
+
+      // The land fades toward the limb, as depth falls (opacity 0.25 + 0.75 * depth).
+      const fade = (hex: string) => {
+        const g = c.createRadialGradient(half, half, 0, half, half, r);
+        [[0, 1], [0.6, 0.85], [0.8, 0.7], [0.95, 0.48], [1, 0.25]].forEach(([at, alpha]) =>
+          g.addColorStop(at, withAlpha(hex, alpha)),
+        );
+        return g;
+      };
 
       // Upper half: green on the off-white sphere.
       c.save();
@@ -193,6 +176,8 @@ export default function InteractiveGlobe() {
       c.lineWidth = 1.2 * dpr;
       c.strokeStyle = withAlpha(green, 0.55);
       c.stroke(rim);
+      c.fillStyle = fade(green);
+      c.fill(land);
       c.restore();
 
       // Lower half: off-white on the green band, which shows through.
@@ -206,14 +191,9 @@ export default function InteractiveGlobe() {
       c.lineWidth = 1.2 * dpr;
       c.strokeStyle = withAlpha(paper, 0.7);
       c.stroke(rim);
+      c.fillStyle = fade(paper);
+      c.fill(land);
       c.restore();
-
-      bands.forEach((depth, band) => {
-        c.fillStyle = withAlpha(green, 0.25 + 0.75 * depth);
-        c.fill(top[band]);
-        c.fillStyle = withAlpha(paper, 0.25 + 0.7 * depth);
-        c.fill(bottom[band]);
-      });
     }
 
     function tick() {

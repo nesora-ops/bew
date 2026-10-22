@@ -436,3 +436,18 @@ no console errors.
   top) sits on the fold. `--hero-globe` is now `min(92vw, max(20rem, min(52rem,
   (100svh - 26.5rem) * 2)))`: 832px at 1440x900, 688px at 1366x768, 345px at 375x812, with
   the equator measured exactly at the viewport bottom in all three.
+
+## 2026-10-22: filled land on the hero globe
+
+- The hero globe (`components/home/InteractiveGlobe.tsx`) now draws land as filled shapes
+  instead of dots. `scripts/build-globe-data.mjs` writes `globe-land-shapes.ts` (Natural Earth
+  1:110m land as a MultiPolygon, rounded to 0.01 degrees, about 77 KB source) in place of
+  `globe-land-grid.ts`, which is deleted. The 404's `svg-globe-path.ts` output is unchanged.
+- New runtime dependency `d3-geo` (plus `@types/d3-geo`): `geoOrthographic` with `clipAngle(90)`
+  projects and clips the land at the horizon; rotation `[yaw, -pitch]` in degrees matches the
+  existing graticule projection. The limb fade is now a radial gradient on the land fill with
+  the same 0.25 + 0.75 * depth curve as the old dot bands.
+- Land source: `world-atlas@2.0.2` `land-110m.json`, fetched with `npm pack` (not committed).
+- Checked in the browser at 1280x1500 (both tones, Atlantic centred as before), after a drag
+  with the South Pole forward (Antarctica, Australia and South America clip cleanly) and at
+  375x812. Typecheck, lint and build clean. Pushed to `main` as nesora-ops on 2026-10-22.
