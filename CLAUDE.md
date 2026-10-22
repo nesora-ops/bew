@@ -143,8 +143,9 @@ unedited as the historical brief.
     `scripts/build-globe-data.mjs`, with no client JavaScript.
 - Fonts: Outfit for display (wordmark, h1/h2, statement), Geist for body and UI, Geist Mono
   for labels and placeholders, all through `next/font/google`.
-- The logo is a **placeholder**. Do not present it as final brand. The hero "Better Earth"
-  wordmark is typeset copy, not the logo; revisit it when brand assets arrive.
+- The logo is the client's BEW lockup (`public/bew-logo*.png`, from their PDF, 2026-10-23), a
+  flat navy tile with no transparent version. The favicon set is cropped from it. The hero
+  "Better Earth" wordmark is still typeset copy, not the logo.
 
 ## Git
 

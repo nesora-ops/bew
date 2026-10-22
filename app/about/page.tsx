@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getCertifications } from "@/content";
 import { PageHero } from "@/components/PageHero";
 import { CtaSection } from "@/components/CtaSection";
@@ -198,6 +199,14 @@ export default function AboutPage() {
         />
         <div className="mt-12 grid gap-4 lg:grid-cols-2">
           <Card>
+            <Image
+              src="/team/ketaki.jpg"
+              alt="Ketaki, Founder & CEO"
+              width={800}
+              height={800}
+              sizes="(min-width: 1024px) 18rem, 100vw"
+              className="mb-6 aspect-square w-full max-w-xs rounded-card object-cover"
+            />
             <h3 className="text-lg font-medium tracking-[-0.01em] text-ink">
               Ketaki, Founder &amp; CEO
             </h3>
