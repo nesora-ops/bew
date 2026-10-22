@@ -29,11 +29,11 @@ export const contact = {
 /** Primary header navigation. Remaining routes are reachable from the footer. */
 export const primaryNav: NavLink[] = [
   { label: "Certifications", href: "/certifications" },
+  { label: "About", href: "/about" },
   { label: "For Organizations", href: "/organizations" },
   { label: "Assessors & Partners", href: "/assessors-partners" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Insights", href: "/insights" },
-  { label: "About", href: "/about" },
 ];
 
 /**

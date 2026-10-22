@@ -112,6 +112,56 @@ export default function AboutPage() {
         description="Third-party verified certification for organizations serious about environmental and social impact."
       />
 
+      <Section id="leadership">
+        <SectionHeading
+          eyebrow="Leadership & governance"
+          title="The people behind"
+          accent="the standard."
+        />
+        <div className="mt-12 grid gap-4 lg:grid-cols-2">
+          <Card>
+            <Image
+              src="/team/ketaki.jpg"
+              alt="Ketaki, Founder & CEO"
+              width={800}
+              height={800}
+              sizes="(min-width: 1024px) 18rem, 100vw"
+              className="mb-6 aspect-square w-full max-w-xs rounded-card object-cover"
+            />
+            <h3 className="text-lg font-medium tracking-[-0.01em] text-ink">
+              Ketaki, Founder &amp; CEO
+            </h3>
+            <p className="mt-3 text-[15px] leading-relaxed text-ink-subdued">
+              Ketaki founded BEW to address the lack of credible, independent,
+              investor-grade sustainability certification. Her stated approach centers on
+              verification rather than marketing and on maintaining independence.
+            </p>
+            <p className="mt-4 text-[15px] leading-relaxed text-ink-subdued">
+              <span className="font-medium text-ink">Credentials and affiliations: </span>
+              <PlaceholderText>
+                [degree/certification], [board affiliations, if applicable]
+              </PlaceholderText>
+            </p>
+          </Card>
+          <Card>
+            <h3 className="text-lg font-medium tracking-[-0.01em] text-ink">
+              Advisory Board
+            </h3>
+            <p className="mt-3 text-[15px] text-ink-subdued">Recommended representation:</p>
+            <div className="mt-4">
+              <BulletList items={advisoryBoard} />
+            </div>
+            <p className="mt-5 text-sm text-ink-subdued">
+              <PlaceholderText>
+                Launch note: 3–4 credible advisors are to be added before launch. A Royal
+                Agricultural University (RAU) partnership is suggested as a possible
+                research advisory anchor. [Advisory board composition to be confirmed]
+              </PlaceholderText>
+            </p>
+          </Card>
+        </div>
+      </Section>
+
       <Section id="mission">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
@@ -189,56 +239,6 @@ export default function AboutPage() {
             </li>
           ))}
         </ol>
-      </Section>
-
-      <Section id="leadership">
-        <SectionHeading
-          eyebrow="Leadership & governance"
-          title="The people behind"
-          accent="the standard."
-        />
-        <div className="mt-12 grid gap-4 lg:grid-cols-2">
-          <Card>
-            <Image
-              src="/team/ketaki.jpg"
-              alt="Ketaki, Founder & CEO"
-              width={800}
-              height={800}
-              sizes="(min-width: 1024px) 18rem, 100vw"
-              className="mb-6 aspect-square w-full max-w-xs rounded-card object-cover"
-            />
-            <h3 className="text-lg font-medium tracking-[-0.01em] text-ink">
-              Ketaki, Founder &amp; CEO
-            </h3>
-            <p className="mt-3 text-[15px] leading-relaxed text-ink-subdued">
-              Ketaki founded BEW to address the lack of credible, independent,
-              investor-grade sustainability certification. Her stated approach centers on
-              verification rather than marketing and on maintaining independence.
-            </p>
-            <p className="mt-4 text-[15px] leading-relaxed text-ink-subdued">
-              <span className="font-medium text-ink">Credentials and affiliations: </span>
-              <PlaceholderText>
-                [degree/certification], [board affiliations, if applicable]
-              </PlaceholderText>
-            </p>
-          </Card>
-          <Card>
-            <h3 className="text-lg font-medium tracking-[-0.01em] text-ink">
-              Advisory Board
-            </h3>
-            <p className="mt-3 text-[15px] text-ink-subdued">Recommended representation:</p>
-            <div className="mt-4">
-              <BulletList items={advisoryBoard} />
-            </div>
-            <p className="mt-5 text-sm text-ink-subdued">
-              <PlaceholderText>
-                Launch note: 3–4 credible advisors are to be added before launch. A Royal
-                Agricultural University (RAU) partnership is suggested as a possible
-                research advisory anchor. [Advisory board composition to be confirmed]
-              </PlaceholderText>
-            </p>
-          </Card>
-        </div>
       </Section>
 
       <Section>
