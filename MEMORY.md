@@ -38,7 +38,9 @@ Status:
 - `/assessors-partners`
 - `/partners`
 - `/certifications` — hub
-- `/certifications/[slug]` — 7 prerendered pathways
+- `/certifications/[slug]` — 3 prerendered pathways (Water Neutral, Green Real Estate, Low
+  Carbon Product). The other 4 are kept in `content/certifications.ts` with `hidden: true` and
+  404 until un-hidden (2026-10-22).
 - `/case-studies`, `/case-studies/[slug]` — 1 study
 - `/faq`
 - `/insights`, `/insights/[slug]` — 3 placeholder articles

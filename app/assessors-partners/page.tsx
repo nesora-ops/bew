@@ -144,7 +144,7 @@ const trainingModules = [
     points: [
       "History, mission, governance",
       "Independence and conflict-of-interest policies",
-      "Seven certification pathways",
+      "Three certification pathways",
       "Technology platform and assessor portal",
     ],
   },

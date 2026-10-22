@@ -25,7 +25,7 @@ const differences = [
   {
     title: "Science-Backed Standards",
     description:
-      "The seven certification pathways are based on peer-reviewed research, global best practices, and stakeholder input.",
+      "The three certification pathways are based on peer-reviewed research, global best practices, and stakeholder input.",
   },
   {
     title: "Transparent Assessment",
@@ -172,7 +172,7 @@ export default function AboutPage() {
       <Section id="portfolio">
         <SectionHeading
           eyebrow="Certification portfolio"
-          title="Seven programmes"
+          title="Three programmes"
           description="Each follows the core model of transparent criteria, qualified assessor assessment, independent review, and certification results."
         />
         <ol className="mt-10 grid gap-x-8 gap-y-3 sm:grid-cols-2">

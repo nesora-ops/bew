@@ -1,7 +1,8 @@
 import type { Certification } from "./types";
 
 /**
- * The seven certification pathways.
+ * The seven certification pathways. Entries marked `hidden` are kept but not shown on
+ * the site (only Water Neutral, Green Real Estate and Low Carbon Product are live).
  *
  * Source: BEW_Consolidated_Deduplicated.md §1 "Our Certifications" and
  * §9 "Seven Certifications — Detailed Hub Content".
@@ -89,6 +90,7 @@ export const certifications: Certification[] = [
   },
   {
     slug: "csr-impact",
+    hidden: true,
     name: "CSR Impact Certification",
     shortName: "CSR Impact",
     tagline: "Measure and verify social impact.",
@@ -128,6 +130,7 @@ export const certifications: Certification[] = [
   },
   {
     slug: "green-hospitality",
+    hidden: true,
     name: "Green Hospitality Certification",
     shortName: "Green Hospitality",
     tagline: "Hospitality with purpose.",
@@ -207,6 +210,7 @@ export const certifications: Certification[] = [
   },
   {
     slug: "carbon-neutral-product",
+    hidden: true,
     name: "Carbon Neutral Product Certification",
     shortName: "Carbon Neutral Product",
     tagline: "Zero-net carbon across your lifecycle.",
@@ -246,6 +250,7 @@ export const certifications: Certification[] = [
   },
   {
     slug: "organisation-of-choice",
+    hidden: true,
     name: "Organisation of Choice™ Workplace Certification",
     shortName: "Workplace Certification",
     tagline: "Be an employer of choice.",

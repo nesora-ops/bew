@@ -5,11 +5,13 @@
  * being built on the existing backend and wired in later; when it lands, these
  * functions become async fetches and the pages above them stay untouched.
  */
-import { certifications } from "./certifications";
+import { certifications as allCertifications } from "./certifications";
 import { caseStudies } from "./caseStudies";
 import { certificationsHubFaq, faqGroups } from "./faqs";
 import { insights } from "./insights";
 import type { CaseStudy, Certification, FaqGroup, Insight } from "./types";
+
+const certifications = allCertifications.filter((certification) => !certification.hidden);
 
 export function getCertifications(): Certification[] {
   return certifications;

@@ -14,7 +14,7 @@ export const partnerCategories: PartnerCategory[] = [
   {
     name: "CSR Consultants",
     description:
-      "Advise on programme design, community engagement, and impact measurement ahead of CSR Impact certification.",
+      "Advise on programme design, community engagement, and impact measurement ahead of certification.",
   },
   {
     name: "CA Firms & Company Secretaries",

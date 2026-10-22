@@ -19,7 +19,7 @@ export function ComparisonTable({
     <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
       <table className="w-full min-w-[720px] border-collapse text-left text-sm">
         <caption className="sr-only">
-          Comparison of the seven BEW certification pathways
+          Comparison of the three BEW certification pathways
         </caption>
         <thead>
           <tr className="border-b border-line">

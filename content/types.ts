@@ -33,6 +33,8 @@ export interface Certification {
   };
   /** Flagged claim requiring confirmation before publication (PROMPT.md §26). */
   note?: string;
+  /** Kept in the data but left off the site: no card, no route, no sitemap entry. */
+  hidden?: boolean;
 }
 
 export interface JourneyStage {

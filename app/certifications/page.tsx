@@ -15,7 +15,7 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 export const metadata: Metadata = {
   title: "Certifications",
   description:
-    "Seven pathways to prove your impact. Each pathway is rigorously designed, independently assessed, and globally recognized.",
+    "Three pathways to prove your impact. Each pathway is rigorously designed, independently assessed, and globally recognized.",
   alternates: { canonical: "/certifications" },
 };
 
@@ -57,7 +57,7 @@ export default function CertificationsPage() {
     <>
       <PageHero
         eyebrow="Certifications"
-        title="Seven pathways to"
+        title="Three pathways to"
         accent="prove your impact."
         description="Choose the certification that aligns with your business priorities and stakeholder expectations. Each pathway is rigorously designed, independently assessed, and globally recognized."
         actions={
@@ -92,7 +92,7 @@ export default function CertificationsPage() {
 
       <Section id="pathways">
         <SectionHeading
-          eyebrow="The seven certifications"
+          eyebrow="The three certifications"
           title="Choose your pathway"
           description="Each certification page carries detailed criteria, timeline, investment, and FAQs."
         />
@@ -127,7 +127,7 @@ export default function CertificationsPage() {
       <Section id="comparison">
         <SectionHeading
           eyebrow="Certification comparison"
-          title="Compare the seven pathways"
+          title="Compare the three pathways"
           description="Timelines and investment ranges vary by certification and organization size."
         />
         <div className="mt-10">

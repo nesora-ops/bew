@@ -139,7 +139,7 @@ export default function OrganizationsPage() {
       <Section id="pathways">
         <SectionHeading
           eyebrow="Certification pathways"
-          title="Seven pathways, one standard"
+          title="Three pathways, one standard"
           description="Choose the certification that aligns with your most material sustainability issue."
         />
         <div className="mt-12">

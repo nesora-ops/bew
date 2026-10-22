@@ -175,11 +175,11 @@ export default function HomePage() {
         items={differentiators}
       />
 
-      {/* 4. Seven certification pathways */}
+      {/* 4. Three certification pathways */}
       <Section id="certifications">
         <SectionHeading
           eyebrow="Our certifications"
-          title="Seven pathways to"
+          title="Three pathways to"
           accent="prove your impact."
           description="Choose the certification that aligns with your business priorities."
         />
